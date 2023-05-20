@@ -5,13 +5,11 @@ import { getAllDocuments , createDocument , updateDocument , deleteDocument} fro
 export async function GET(request: Request) {
 
   try {
-       
-    const response = await getAllDocuments('grades');
-    console.log('response', response);
-
-    return NextResponse.json({ response: response });
-
     
+    const response = await getAllDocuments('grades');
+    console.log('response', response.documents);
+
+    return NextResponse.json({ response: response.documents });
 
   } catch (error) {
     console.log('error', error);
@@ -21,11 +19,8 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    //console.log('request', request);
-    // Retrieve the request body from the event
     const  body  = await request.json();
-    
-    // Create a new document using the provided data
+
     const newDocument = await createDocument('grades', body);
 
     return NextResponse.json({ newDocument });
