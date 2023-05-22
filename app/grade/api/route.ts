@@ -2,14 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { getAllDocuments , createDocument , updateDocument , deleteDocument} from '@/lib/mongodb';
 
-export async function GET(request: Request) {
+export async function GET() {
 
   try {
     
     const response = await getAllDocuments('grades');
-    console.log('response', response.documents);
-
-    return NextResponse.json({ response: response.documents });
+    
+    return NextResponse.json(response.documents );
 
   } catch (error) {
     console.log('error', error);
@@ -51,7 +50,7 @@ export async function DELETE(request: Request) {
     const body = await request.text();
 
     // Delete the document based on the provided data
-    await deleteDocument('grades', body);
+    //await deleteDocument('grades', body);
 
     return NextResponse.json({ success: true });
   } catch (error) {

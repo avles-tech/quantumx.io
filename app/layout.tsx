@@ -1,8 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import AppBar from '@mui/material/AppBar';
-import Link from 'next/link';
-import Header from './componenets/Header';
+import AppNav from './componenets/AppNav';
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,16 +16,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
   return (
 
     <html lang="en">
 
       <body className={inter.className}>
-       <Header></Header>
-
-
-
-        {children}
+      <div className="flex flex-col">  {/* Changed to flex-col */}
+      <AppNav />
+      
+          {children}
+       
+    </div>
       </body>
     </html>
 
