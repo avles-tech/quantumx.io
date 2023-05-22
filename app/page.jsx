@@ -5,14 +5,17 @@ import dynamic from 'next/dynamic'
 
 const Grades = dynamic(() => import('./componenets/Grades'))
 const HomeComponent = dynamic(() => import('./componenets/HomeComponent'))
-
+const Departments = dynamic(() => import('./componenets/Departments'))
+ 
 export default function Home() {
   const [menuSelection, setMenuSelection] = useState("");
 
   const renderComponent = () => {
     switch(menuSelection) {
       case "grade":
-        return <Grades />;
+        return <Grades/>;
+        case "department":
+        return <Departments />;
       case "":
           return <HomeComponent />;
       default:

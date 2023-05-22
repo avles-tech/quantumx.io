@@ -14,10 +14,10 @@ const AppSideBar = (props) => {
               label="Human Resource"
             >
               <Sidebar.Item href="#" >
-                <div onClick={props.setMenuSelection} > Geo Location</div> 
+                <div onClick={props.setMenuSelection}>Geo Location</div> 
               </Sidebar.Item>
               <Sidebar.Item href="#" >
-                Departments
+               <div onClick={() => props.setMenuSelection('department')}>Departments</div> 
               </Sidebar.Item>
               <Sidebar.Item href="#"  >
               <div onClick={() => props.setMenuSelection('grade')} > Grades</div> 
