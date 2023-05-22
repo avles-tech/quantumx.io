@@ -26,7 +26,7 @@ const CreateDepartment = (props: any) => {
         setVisible(false);
         setCreating(true);
         try {
-            await fetch('/department/api', {
+            await fetch('/grade/api', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
