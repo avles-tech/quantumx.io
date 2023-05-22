@@ -23,6 +23,7 @@ const Grades = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [showItemDeletedInfo, setShowItemDeletedInfo] = useState(false);
+    const [showItemCreatedInfo, setShowItemCreatedInfo] = useState(false);
     const [reload, setReload] = useState(false);
 
     const fetchData = async () => {
@@ -37,6 +38,14 @@ const Grades = () => {
         setShowItemDeletedInfo(true);
         setTimeout(() => {
             setShowItemDeletedInfo(false);
+        }
+            , 5000);
+    }
+
+    async function alertItemCreatedInfo() {
+        setShowItemCreatedInfo(true);
+        setTimeout(() => {
+            setShowItemCreatedInfo(false);
         }
             , 5000);
     }
@@ -80,9 +89,20 @@ const Grades = () => {
                     {' '}Item deleted.
                 </span>
             </Alert> : null}
+            {showItemCreatedInfo ? <Alert
+                color="success"
+
+            >
+                <span>
+                    <span className="font-medium">
+                        Info alert!
+                    </span>
+                    {' '}Item Created.
+                </span>
+            </Alert> : null}
 
             <div className="flex justify-end mb-5">
-                <CreateGrade />
+                <CreateGrade alertItemCreatedInfo={alertItemCreatedInfo} setReload ={setReload} />
             </div>
             <div className="relative overflow-x-auto m-8">
                 {/* <input
