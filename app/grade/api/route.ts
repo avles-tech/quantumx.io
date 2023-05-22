@@ -29,20 +29,7 @@ export async function POST(request: Request) {
   }
 }
 
-export async function PUT(request: Request) {
-  try {
-    // Retrieve the request body from the event
-    const { body } =  request;
-    
-    // Update the document with the provided data
-    const updatedDocument = await updateDocument('grades', body);
 
-    return NextResponse.json({ updatedDocument });
-  } catch (error) {
-    console.log('error', error);
-    return NextResponse.error();
-  }
-}
 
 export async function DELETE(request: Request) {
   try {
@@ -51,6 +38,10 @@ export async function DELETE(request: Request) {
 
     // Delete the document based on the provided data
     //await deleteDocument('grades', body);
+
+    // body is blank . why ?
+    console.log('body', body);
+
 
     return NextResponse.json({ success: true });
   } catch (error) {

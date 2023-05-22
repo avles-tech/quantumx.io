@@ -27,12 +27,8 @@ const EditGrade = (props: any) => {
         setDeleteConfirmation(false);
         setDeleting(true);
         try {
-            await fetch('/grade/api', {
+            await fetch('/grade/api/' + props.details._id, {
                 method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: props.details._id }),
             });
 
             setDeleting(false);

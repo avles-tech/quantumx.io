@@ -96,12 +96,12 @@ export async function deleteDocument(collectionName: string, documentId: string)
             collection: collectionName,
             database: db,
             dataSource: 'Cluster0',
-            documentId: documentId,
+            filter: { "_id": { "$oid": documentId } }
         });
 
         const config = {
             method: 'post',
-            url: `${endPoint}/action/delete`,
+            url: `${endPoint}/action/deleteOne`,
             headers: {
                 'Content-Type': 'application/json',
                 'api-key': apiKey,
