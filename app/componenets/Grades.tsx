@@ -38,7 +38,7 @@ const Grades = () => {
         setTimeout(() => {
             setShowItemDeletedInfo(false);
         }
-            , 2000);
+            , 5000);
     }
 
     useEffect(() => {
@@ -77,7 +77,7 @@ const Grades = () => {
                     <span className="font-medium">
                         Info alert!
                     </span>
-                    {' '}Change a few things up and try submitting again.
+                    {' '}Item deleted.
                 </span>
             </Alert> : null}
 
