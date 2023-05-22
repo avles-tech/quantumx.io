@@ -15,12 +15,20 @@ const CreateDepartment = (props: any) => {
     const [creating, setCreating] = useState(false);
     const [created, setCreated] = useState(false);
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    const detailsRef = useRef<HTMLInputElement>(null);
+    const codeRef = useRef<HTMLInputElement>(null);
+
     useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.focus();
+        if (detailsRef.current) {
+            detailsRef.current.focus();
         }
     }, [details]);
+
+    useEffect(() => {
+        if (codeRef.current) {
+            codeRef.current.focus();
+        }
+    }, [code]);
 
     async function createItem() {
         setVisible(false);
@@ -112,7 +120,7 @@ const CreateDepartment = (props: any) => {
                                 />
                             </div>
                             <TextInput
-                                ref={inputRef}
+                                ref={detailsRef}
                                 id="details"
                                 required={true}
                                 value={details}
@@ -127,7 +135,7 @@ const CreateDepartment = (props: any) => {
                                 />
                             </div>
                             <TextInput
-                                ref={inputRef}
+                                ref={codeRef}
                                 id="code"
                                 required={true}
                                 value={code}
