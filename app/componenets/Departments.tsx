@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CheckOrNotIcon from './CheckOrNotIcon';
-import EditDepartment from './department/editdepartment';
-import CreateDepartment from './department/createdepartment';
+import EditDepartment from './department/EditDepartment';
+import CreateDepartment from './department/CreateDepartment';
 import { Alert } from 'flowbite-react';
 
 async function fetchDepartments() {

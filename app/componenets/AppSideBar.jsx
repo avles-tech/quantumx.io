@@ -13,8 +13,8 @@ const AppSideBar = (props) => {
               icon={Diversity3}
               label="Human Resource"
             >
-              <Sidebar.Item href="#" >
-                <div onClick={props.setMenuSelection}>Geo Location</div> 
+              <Sidebar.Item href="#"  >
+              <div onClick={() => props.setMenuSelection('geolocation')} > GeoLocations</div> 
               </Sidebar.Item>
               <Sidebar.Item href="#" >
                <div onClick={() => props.setMenuSelection('department')}>Departments</div> 
@@ -22,11 +22,11 @@ const AppSideBar = (props) => {
               <Sidebar.Item href="#"  >
               <div onClick={() => props.setMenuSelection('grade')} > Grades</div> 
               </Sidebar.Item>
-              <Sidebar.Item href="#" >
-                Employees
+              <Sidebar.Item href="#"  >
+              <div onClick={() => props.setMenuSelection('employee')} > Employees</div> 
               </Sidebar.Item>
             </Sidebar.Collapse>
-            <Sidebar.Collapse
+            <Sidebar.Collapses
               icon={Schedule}
               label="Time & Attendance"
             >

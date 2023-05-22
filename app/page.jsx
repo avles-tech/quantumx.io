@@ -6,6 +6,9 @@ import dynamic from 'next/dynamic'
 const Grades = dynamic(() => import('./componenets/Grades'))
 const HomeComponent = dynamic(() => import('./componenets/HomeComponent'))
 const Departments = dynamic(() => import('./componenets/Departments'))
+const Employees = dynamic(() => import('./componenets/Employees'))
+const GeoLocations = dynamic(() => import('./componenets/GeoLocation'))
+
  
 export default function Home() {
   const [menuSelection, setMenuSelection] = useState("");
@@ -14,6 +17,8 @@ export default function Home() {
     switch(menuSelection) {
       case "grade":
         return <Grades/>;
+        case "employee":
+        return <Employees/>;
         case "department":
         return <Departments />;
       case "":
