@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/componenets/CheckOrNotIcon.jsx", "app/grade/edit/page.jsx", "app/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/componenets/CheckOrNotIcon.jsx", "app/grade/edit/page.jsx", "app/page.jsx", "app/componenets/grade/Grades.tsx"],
   "exclude": ["node_modules"]
 }

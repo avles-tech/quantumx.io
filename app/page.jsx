@@ -3,7 +3,7 @@ import AppSideBar from './componenets/AppSideBar';
 import { useState } from 'react';
 import dynamic from 'next/dynamic'
 
-const Grades = dynamic(() => import('./componenets/Grades'))
+const Grades = dynamic(() => import('./componenets/grade/Grades'))
 const HomeComponent = dynamic(() => import('./componenets/HomeComponent'))
 const Departments = dynamic(() => import('./componenets/Departments'))
 const Employees = dynamic(() => import('./componenets/Employees'))
