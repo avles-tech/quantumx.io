@@ -1,14 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server';
+import {  NextResponse } from 'next/server';
 
-import { getAllDocuments , createDocument , updateDocument , deleteDocument} from '@/lib/mongodb';
+import {  updateOneDocument , deleteOneDocument} from '@/lib/mongodb';
 
-export async function PUT(request: Request) {
+export async function PUT(request: Request,{
+    params,
+  }: {
+    params: { id: string };
+  },) {
     try {
       // Retrieve the request body from the event
-      const { body } =  request;
+      const  body  = await request.json();
       
       // Update the document with the provided data
-      const updatedDocument = await updateDocument('grades', body);
+      const updatedDocument = await updateOneDocument('grades', params.id, body );
   
       return NextResponse.json({ updatedDocument });
     } catch (error) {
@@ -32,7 +36,7 @@ export async function DELETE(request: Request,{
     
 
     // Delete the document based on the provided data
-    await deleteDocument('grades', id);
+    await deleteOneDocument('grades', id);
 
     // body is blank . why ?
    

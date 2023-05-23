@@ -32,7 +32,7 @@ const CreateGrade = (props: any) => {
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ details: details, ignoreLateArrival: ignoreLateArrival, ignoreEarlyDepature: ignoreEarlyDeparture, active: active }),
+                body: JSON.stringify({ details: details, ignoreLateArrival: ignoreLateArrival, ignoreEarlyDeparture: ignoreEarlyDeparture, active: active }),
               });
 
               setCreating(false);

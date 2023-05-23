@@ -1,7 +1,8 @@
 'use client';
 import React from 'react'
-import { Button, Checkbox, Label, Modal, Spinner, TextInput, } from 'flowbite-react'
+import { Alert, Button, Checkbox, Label, Modal, Spinner, TextInput, } from 'flowbite-react'
 import { useState, useEffect, useRef } from 'react';
+
 
 const EditGrade = (props: any) => {
 
@@ -15,6 +16,7 @@ const EditGrade = (props: any) => {
     const [deleteConfirmation, setDeleteConfirmation] = useState(false);
     const [deleting, setDeleting] = useState(false);
     const [deleted, setDeleted] = useState(false);
+    const [updating, setUpdating] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
     useEffect(() => {
@@ -42,6 +44,30 @@ const EditGrade = (props: any) => {
         } finally {
             // insert cleanup code here
         }
+
+    }
+
+    async function updateItem() {
+        console.log('updateItem');
+        setUpdating(true);
+        await fetch('/grade/api/' + props.details._id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                details: details,
+                ignoreLateArrival: ignoreLateArrival,
+                ignoreEarlyDeparture: ignoreEarlyDeparture,
+                active: active,
+            }),
+        });
+
+        setUpdating(false);
+        props.alertItemUpdatedInfo();
+        props.setReload(true);
+
+
 
     }
 
@@ -96,7 +122,7 @@ const EditGrade = (props: any) => {
                     <div className="text-center">
 
                         <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                            Are you sure you want to delete this product?
+                            Are you sure you want to delete this Item?
                         </h3>
                         <div className="flex justify-center gap-4">
                             <Button
@@ -123,6 +149,11 @@ const EditGrade = (props: any) => {
             >
                 <Modal.Header>
                     Edit Grade
+                    {updating ? <Alert color="warning">
+                        <span>
+                            <span className="font-medium">Info alert!</span>{' '}updating...
+                        </span>
+                    </Alert> : null}
                 </Modal.Header>
 
                 <Modal.Body>
@@ -140,6 +171,7 @@ const EditGrade = (props: any) => {
                                 required={true}
                                 value={details}
                                 onChange={e => setDetails(e.target.value)}
+                                disabled={updating}
                             />
                         </div>
                         <div className="flex items-center gap-2">
@@ -147,6 +179,7 @@ const EditGrade = (props: any) => {
                                 id="ignoreLateArrival"
                                 checked={ignoreLateArrival}
                                 onChange={e => setIgnoreLateArrival(e.target.checked)}
+                                disabled={updating}
                             />
                             <Label htmlFor="ignoreLateArrival">
                                 Ignore Late Arrival
@@ -157,6 +190,7 @@ const EditGrade = (props: any) => {
                                 id="ignoreEarlyDeparture"
                                 checked={ignoreEarlyDeparture}
                                 onChange={e => setIgnoreEarlyDeparture(e.target.checked)}
+                                disabled={updating}
                             />
                             <Label htmlFor="ignoreEarlyDeparture">
                                 Ignore Early Departure
@@ -167,16 +201,17 @@ const EditGrade = (props: any) => {
                                 id="active"
                                 checked={active}
                                 onChange={e => setActive(e.target.checked)}
+                                disabled={updating}
                             />
                             <Label htmlFor="active">
                                 Active
                             </Label>
                         </div>
                         <div className="flex justify-between">
-                            <Button color='failure' onClick={() => { setVisible(false); setDeleteConfirmation(true); }}>
+                            <Button disabled={updating} color='failure' onClick={() => { setVisible(false); setDeleteConfirmation(true); }}>
                                 Delete
                             </Button>
-                            <Button >
+                            <Button disabled={updating} onClick={() => updateItem()}>
                                 Update
                             </Button>
 

@@ -8,7 +8,7 @@ const MyForm = () => {
 
   const [details, setDetails] = useState('');
   const [ignoreLateArrival, setIgnoreLateArrival] = useState(false);
-  const [ignoreEarlyDepature, setIgnoreEarlyDepature] = useState(false);
+  const [ignoreEarlyDeparture, setIgnoreEarlyDeparture] = useState(false);
   const [active, setActive] = useState(false);
 
   
@@ -23,7 +23,7 @@ const MyForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ details: details, ignoreLateArrival: ignoreLateArrival, ignoreEarlyDepature: ignoreEarlyDepature, active: active }),
+        body: JSON.stringify({ details: details, ignoreLateArrival: ignoreLateArrival, ignoreEarlyDeparture: ignoreEarlyDeparture, active: active }),
       });
 
       setCreated(true);
@@ -34,7 +34,7 @@ const MyForm = () => {
      
      setDetails('');
      setIgnoreLateArrival(false);
-     setIgnoreEarlyDepature(false);
+     setIgnoreEarlyDeparture(false);
      setActive(false);
       
      
@@ -85,13 +85,13 @@ const MyForm = () => {
 
         <div className="flex items-center mb-4">
           <input
-            id="ignoreEarlyDepature"
+            id="ignoreEarlyDeparture"
             type="checkbox"
             className="mr-2 form-checkbox text-blue-500"
-            checked={ignoreEarlyDepature}
-            onChange={(e) => setIgnoreEarlyDepature(e.target.checked)}
+            checked={ignoreEarlyDeparture}
+            onChange={(e) => setIgnoreEarlyDeparture(e.target.checked)}
           />
-          <label htmlFor="ignoreEarlyDepature" className="text-gray-700">
+          <label htmlFor="ignoreEarlyDeparture" className="text-gray-700">
             Ignore Early Departure
           </label>
         </div>

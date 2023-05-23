@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { findAllDocuments , insertOneDocument , updateOneDocument , deleteOneDocument} from '@/lib/mongodb';
 
-export async function GET() {
+export async function GET(request: Request) {
 
   try {
+    const  {collectionName }  = await request.json();
     
     const response = await findAllDocuments('grades');
     
@@ -28,9 +29,3 @@ export async function POST(request: Request) {
     return NextResponse.error();
   }
 }
-
-
-
-
-
-

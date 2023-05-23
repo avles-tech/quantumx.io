@@ -16,6 +16,3 @@ const GradesPage =  () => {
 }
 
 export default GradesPage
-
-// whats the url for this page?
-// http://localhost:3000/HumanResource/Grades
