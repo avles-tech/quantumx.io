@@ -19,11 +19,12 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const  body  = await request.json();
+    const  {collectionName }  = await request.json();
+      const response = await findAllDocuments(collectionName);
+  
+      return NextResponse.json(response.documents );
 
-    const newDocument = await insertOneDocument('grades', body);
-
-    return NextResponse.json({ newDocument });
+   
   } catch (error) {
     console.log('error', error);
     return NextResponse.error();
