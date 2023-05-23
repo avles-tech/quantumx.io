@@ -4,10 +4,9 @@ import { findAllDocuments , insertOneDocument , updateOneDocument , deleteOneDoc
 
 export async function GET(request: Request) {
 
-  
-
-
   try {
+    const { searchParams } = new URL(request.url);
+  const collectionName = searchParams.get('collectionName');
       
       return NextResponse.json({test : "test"});
   } catch (error) {

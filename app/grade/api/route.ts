@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { findAllDocuments , insertOneDocument , updateOneDocument , deleteOneDocument} from '@/lib/mongodb';
+import { findAllDocuments , insertOneDocument , updateOneDocument , deleteOneDocument} from '@/lib/mongodbdataapi';
 
 export async function GET() {
 

@@ -3,9 +3,8 @@ import CreateGrade from './CreateGrade';
 import { useAlert } from './../utils/AlertUtils';
 import { usePagination } from './../utils/PaginationUtils';
 import { useSearch } from './../utils/SearchUtils';
-import { useDataFetch } from './../utils/DataFetchHook';
 import { useDataFilter } from './../utils/FilterDataHook';
-import { fetchGrades } from './../utils/ApiUtils';
+import { fetchDocuments } from './../utils/ApiUtils';
 import Pagination from './Pagination';
 import GradesTable from './GradesTable';
 import Alert from './Alert';
@@ -18,19 +17,24 @@ const Grades = () => {
     const [showItemUpdatedInfo, alertItemUpdatedInfo] = useAlert();
     const [page, setPage, nextPage, previousPage, itemsPerPage] = usePagination();
     const [searchQuery, setSearchQuery] = useSearch();
-    const [data, isLoading, setData] = useDataFetch(fetchGrades);
+    const [data, setData] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    //const [data, isLoading, setData] = useDataFetch(() => fetchDocuments('grades'));
     const filteredData = useDataFilter(data, searchQuery, page, itemsPerPage);
     const [reloadCount, setReloadCount] = useState(0);
 
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await fetchGrades();
+            setIsLoading(true);
+            const data = await fetchDocuments('grades');
             setData(data);
+            setIsLoading(false);
         };
 
         fetchData();
-    }, [setData, reloadCount]);
+    }, [reloadCount]);
 
     const reload = (): void => {
         setReloadCount(count => count + 1);

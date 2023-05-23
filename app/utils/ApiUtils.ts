@@ -1,13 +1,15 @@
-export async function fetchGrades(): Promise<any[]> {
-    const response = await fetch('/api' 
-    , {
-        method: 'POST',
+export async function fetchDocuments(collectionName : string ): Promise<any[]> {
+    const response = await fetch(`/api/mongodb/find/${collectionName}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({collectionName: 'grades'}),
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
     }
-    );
+
     const data = await response.json();
     return data;
 }

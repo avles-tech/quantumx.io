@@ -1,6 +1,6 @@
 import {  NextResponse } from 'next/server';
 
-import {  updateOneDocument , deleteOneDocument} from '@/lib/mongodb';
+import {  updateOneDocument , deleteOneDocument} from '@/lib/mongodbdataapi';
 
 export async function PUT(request: Request,{
     params,
