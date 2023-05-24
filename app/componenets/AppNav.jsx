@@ -14,7 +14,10 @@ const AppNav = () => {
       
       <Image    src="https://flowbite.com/docs/images/logo.svg"
         className="mr-3 h-6 sm:h-9"
-        alt="Flowbite Logo"></Image>
+        alt="Flowbite Logo"
+        width={40}
+        height={40}
+        ></Image>
       <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-gray-700">
         QuantumX.io
       </span>
