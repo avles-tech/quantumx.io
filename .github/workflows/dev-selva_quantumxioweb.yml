@@ -23,6 +23,11 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          echo Deleting old node_modules folder
+          rm -rf node_modules
+          echo Deleting package-lock.json
+          rm package-lock.json
+          echo Clean install of npm packages
           npm install
           npm run build --if-present
           npm run test --if-present
