@@ -54,6 +54,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
+          images : ""
           app-name: 'quantumxio'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3D6CD9B9EA364C83927FD2DCF8C02F87 }}
