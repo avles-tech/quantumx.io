@@ -29,9 +29,16 @@ const EditGrade = (props: any) => {
         setDeleteConfirmation(false);
         setDeleting(true);
         try {
-            await fetch('/grade/api/' + props.details._id, {
-                method: 'DELETE',
-            });
+            await fetch('/api/mongodb/deleteOne/grades', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ _id: props.details._id }),
+
+            },
+
+            );
 
             setDeleting(false);
             setDeleted(true);
@@ -50,16 +57,20 @@ const EditGrade = (props: any) => {
     async function updateItem() {
         console.log('updateItem');
         setUpdating(true);
-        await fetch('/grade/api/' + props.details._id, {
-            method: 'PUT',
+        await fetch('/api/mongodb/updateOne/grades', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                details: details,
-                ignoreLateArrival: ignoreLateArrival,
-                ignoreEarlyDeparture: ignoreEarlyDeparture,
-                active: active,
+                _id: props.details._id,
+                data: {
+                    details: details,
+                    ignoreLateArrival: ignoreLateArrival,
+                    ignoreEarlyDeparture: ignoreEarlyDeparture,
+                    active: active,
+                },
+
             }),
         });
 
