@@ -129,7 +129,7 @@ const EditGrade = (props: any) => {
                                 color="failure"
                                 onClick={() => { deleteItem(); }}
                             >
-                                Yes, I'm sure
+                                Yes, I&apos;m sure
                             </Button>
                             <Button
                                 color="gray"

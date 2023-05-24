@@ -19,8 +19,8 @@ const EditGrade = (props) => {
 
     // On component mount, fetch the grade details
     useEffect(() => {
-        fetchGradeDetails(props.match.params.id);
-    }, [props.match.params.id]);
+        fetchGradeDetails(props.id);
+    }, [props.id]);
 
     const handleInputChange = (event) => {
         const target = event.target;

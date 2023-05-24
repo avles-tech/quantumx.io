@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react'
 import CreateGrade from './CreateGrade';
 import { useAlert } from './../utils/AlertUtils';

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Navbar , Dropdown , Avatar} from 'flowbite-react';
-
+import Image from 'next/image'
 
 const AppNav = () => {
   return (
@@ -11,11 +11,10 @@ const AppNav = () => {
     style={{ boxShadow: '0 0 0.5rem 0 rgba(0, 0, 0, 0.1)' }}
   >
     <Navbar.Brand href="/">
-      <img
-        src="https://flowbite.com/docs/images/logo.svg"
+      
+      <Image    src="https://flowbite.com/docs/images/logo.svg"
         className="mr-3 h-6 sm:h-9"
-        alt="Flowbite Logo"
-      />
+        alt="Flowbite Logo"></Image>
       <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white text-gray-700">
         QuantumX.io
       </span>
