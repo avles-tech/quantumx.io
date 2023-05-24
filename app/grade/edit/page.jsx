@@ -11,6 +11,7 @@ const EditGrade = (props) => {
 
     // Function to fetch the grade details from API
     // This needs to be updated with actual API endpoint and request method
+    // just to trigger
     const fetchGradeDetails = async (id) => {
         const response = await fetch('/api/grade/' + id);
         const data = await response.json();
