@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckOrNotIcon from './CheckOrNotIcon';
-import EditGrade from './EditGrade';
+import UpdateGrade from './UpdateGrade';
 import Table from './Table'; 
 
 // Assuming this is the shape of your grade data
@@ -43,7 +43,7 @@ const GradesTable: React.FC<GradesTableProps> = ({ data, alertItemDeletedInfo, a
         {
             key: '_id',
             label: 'Edit',
-            render: (_: any, item: Grade) => <EditGrade details={item}  alertItemDeletedInfo={alertItemDeletedInfo} alertItemUpdatedInfo={alertItemUpdatedInfo} setReload={setReload} />
+            render: (_: any, item: Grade) => <UpdateGrade details={item}  alertItemDeletedInfo={alertItemDeletedInfo} alertItemUpdatedInfo={alertItemUpdatedInfo} setReload={setReload} />
         }
     ];
 

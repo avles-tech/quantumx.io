@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 
 const Grades = dynamic(() => import('./componenets/Grades'))
 const HomeComponent = dynamic(() => import('./componenets/HomeComponent'))
-const Departments = dynamic(() => import('./componenets/Departments'))
+const Departments = dynamic(() => import('./componenets/department/Departments'))
 const Employees = dynamic(() => import('./componenets/Employees'))
 const GeoLocations = dynamic(() => import('./componenets/GeoLocation'))
 

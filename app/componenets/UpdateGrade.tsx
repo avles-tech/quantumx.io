@@ -4,7 +4,7 @@ import { Alert, Button, Checkbox, Label, Modal, Spinner, TextInput, } from 'flow
 import { useState, useEffect, useRef } from 'react';
 
 
-const EditGrade = (props: any) => {
+const UpdateGrade = (props: any) => {
 
 
     const [visible, setVisible] = useState(false);
@@ -235,4 +235,4 @@ const EditGrade = (props: any) => {
     )
 }
 
-export default EditGrade
+export default UpdateGrade
