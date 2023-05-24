@@ -1,10 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
-
-import { findAllDocuments, insertOneDocument, updateOneDocument, deleteOneDocument } from '@/lib/mongodbdataapi';
-
+import {  NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/mongodb';
 
-export async function GET(request: Request, {
+export async function POST(request: Request, {
   params,
 }: {
   params: { slug: string };
@@ -12,10 +9,11 @@ export async function GET(request: Request, {
   try {
 
     const collectionName = params.slug;
+    const  body  = await request.json();
 
     const { db } = await connectToDatabase();
 
-    const data = await db.collection(collectionName).find().toArray();
+    const data = await db.collection(collectionName).insertOneDocument(body);
     
     return NextResponse.json(data);
     // const response = await findAllDocuments(collectionName);

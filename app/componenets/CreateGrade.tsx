@@ -27,7 +27,7 @@ const CreateGrade = (props: any) => {
         setVisible(false);
         setCreating(true);
         try {
-            await fetch('/grade/api', {
+            await fetch('/api/mongodb/insertOne/grades', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
