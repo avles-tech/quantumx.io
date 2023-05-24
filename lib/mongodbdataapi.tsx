@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiKey = process.env.DATA_API_KEY || '3CbUxRPz87FpP2gUXvnwZuZ8p9ecA9GDSe9NnW44bMHsNF3Dape8hIvqcdSR1x5W';
-const db = process.env.MONGODB_DB || 'quantumxio';
+const db = process.env.DB_NAME || 'quantumxio';
 const endPoint = process.env.MONGODB_URL_ENDPOINT || 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-mpxnv/endpoint/data/v1';
 
 
