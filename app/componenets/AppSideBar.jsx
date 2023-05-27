@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 import { Sidebar } from 'flowbite-react';
-import { Diversity3, LocationCity, Store, Star, Event, Schedule } from '@mui/icons-material';
+import { Diversity3, Event, Schedule } from '@mui/icons-material';
 
 const AppSideBar = (props) => {
   return (
@@ -22,7 +22,7 @@ const AppSideBar = (props) => {
               <div onClick={() => props.setMenuSelection('grade')}>Grades</div>
             </Sidebar.Item>
             <Sidebar.Item href="#">
-              <div onClick={() => props.setMenuSelection('employee')}>Employees</div>
+            <div onClick={() => props.setMenuSelection('employee')}>Employees</div>
             </Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse
@@ -30,16 +30,20 @@ const AppSideBar = (props) => {
             label="Time & Attendance"
           >
             <Sidebar.Item href="#">
-              Roaster
+              <div onClick={() => props.setMenuSelection('roaster')}>Roaster</div>
+
             </Sidebar.Item>
             <Sidebar.Item href="#">
-              Shifts
+              <div onClick={() => props.setMenuSelection('shift')}>Shifts</div>
+
             </Sidebar.Item>
             <Sidebar.Item href="#">
-              Holiday Types
+              <div onClick={() => props.setMenuSelection('holidaytype')}>Holiday Types</div>
+
             </Sidebar.Item>
             <Sidebar.Item href="#">
-              Devices
+              <div onClick={() => props.setMenuSelection('device')}>Devices</div>
+
             </Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse
@@ -47,10 +51,12 @@ const AppSideBar = (props) => {
             label="Leave Management"
           >
             <Sidebar.Item href="#">
-              Leave Models
+              <div onClick={() => props.setMenuSelection('leavemodel')}> Leave Models</div>
+
             </Sidebar.Item>
             <Sidebar.Item href="#">
-              Leave Types
+              <div onClick={() => props.setMenuSelection('leavetype')}>Leave Types</div>
+
             </Sidebar.Item>
           </Sidebar.Collapse>
         </Sidebar.ItemGroup>

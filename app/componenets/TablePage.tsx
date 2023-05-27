@@ -1,18 +1,22 @@
 'use client';
 import React, { useEffect, useState } from 'react'
-import CreateGrade from './CreateGrade';
-import { useAlert } from './../utils/AlertUtils';
-import { usePagination } from './../utils/PaginationUtils';
-import { useSearch } from './../utils/SearchUtils';
-import { useDataFilter } from './../utils/FilterDataHook';
-import { fetchDocuments } from './../utils/ApiUtils';
+import { useAlert } from '../utils/AlertUtils';
+import { usePagination } from '../utils/PaginationUtils';
+import { useSearch } from '../utils/SearchUtils';
+import { useDataFilter } from '../utils/FilterDataHook';
+import { fetchDocuments } from '../utils/ApiUtils';
 import Pagination from './Pagination';
-import GradesTable from './GradesTable';
 import Alert from './Alert';
 import SearchBar from './SearchBar';
 import LoadingIndicator from './LoadingIndicator';
 
-const Grades = () => {
+interface TablePageProps {
+  tableName: string;
+  tableComponent: React.FC<any>;
+  createComponent: React.FC<any>;
+}
+
+const TablePage: React.FC<TablePageProps> = ({ tableName, tableComponent: TableComponent, createComponent: CreateComponent }) => {
     const [showItemCreatedInfo, alertItemCreatedInfo] = useAlert();
     const [showItemDeletedInfo, alertItemDeletedInfo] = useAlert();
     const [showItemUpdatedInfo, alertItemUpdatedInfo] = useAlert();
@@ -21,7 +25,6 @@ const Grades = () => {
     const [data, setData] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    //const [data, isLoading, setData] = useDataFetch(() => fetchDocuments('grades'));
     const filteredData = useDataFilter(data, searchQuery, page, itemsPerPage);
     const [reloadCount, setReloadCount] = useState(0);
 
@@ -29,22 +32,21 @@ const Grades = () => {
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
-            const data = await fetchDocuments('grades');
+            const data = await fetchDocuments(tableName);
             setData(data);
             setIsLoading(false);
         };
 
         fetchData();
-    }, [reloadCount]);
+    }, [reloadCount, tableName]);
 
     const reload = (): void => {
         setReloadCount(count => count + 1);
     };
 
-
     return (
         <>
-            <h3> Grades</h3>
+            <h3>{tableName}</h3>
             {showItemDeletedInfo ? <Alert message="Item deleted." color="failure" show={showItemDeletedInfo} /> : null}
 
             {showItemCreatedInfo ? <Alert message="Item created." color="success" show={showItemCreatedInfo} /> : null}
@@ -52,13 +54,13 @@ const Grades = () => {
             {showItemUpdatedInfo ? <Alert message="Item updated." color="success" show={showItemUpdatedInfo} /> : null}
 
             <div className="flex justify-end mb-5">
-                <CreateGrade alertItemCreatedInfo={alertItemCreatedInfo} setReload={reload} />
+                <CreateComponent alertItemCreatedInfo={alertItemCreatedInfo} setReload={reload} />
             </div>
             <div className="relative overflow-x-auto m-8">
                 <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
                 <LoadingIndicator isLoading={isLoading} /> {/* Using LoadingIndicator */}
                 {!isLoading &&
-                    <GradesTable
+                    <TableComponent
                         data={filteredData}
                         alertItemDeletedInfo={alertItemDeletedInfo}
                         alertItemUpdatedInfo={alertItemUpdatedInfo}
@@ -71,4 +73,4 @@ const Grades = () => {
     )
 }
 
-export default Grades;
+export default TablePage;

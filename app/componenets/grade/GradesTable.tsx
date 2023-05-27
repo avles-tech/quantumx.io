@@ -1,7 +1,7 @@
 import React from 'react';
-import CheckOrNotIcon from './CheckOrNotIcon';
+import CheckOrNotIcon from '../CheckOrNotIcon';
 import UpdateGrade from './UpdateGrade';
-import Table from './Table'; 
+import Table from '../Table'; 
 
 // Assuming this is the shape of your grade data
 interface Grade {
