@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import CreateDepartment from './CreateDepartment';
 import { useAlert } from '../../utils/AlertUtils';
 import { usePagination } from '../../utils/PaginationUtils';
 import { useSearch } from '../../utils/SearchUtils';
@@ -12,6 +11,7 @@ import DepartmentsTable from './DepartmentsTable';
 import Alert from '../Alert';
 import SearchBar from '../SearchBar';
 import LoadingIndicator from '../LoadingIndicator';
+import CreateDepartment from './CreateDepartment_';
 
 const Departments = () => {
   const [showItemCreatedInfo, alertItemCreatedInfo] = useAlert();
