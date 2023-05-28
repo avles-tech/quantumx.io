@@ -3,7 +3,7 @@ import { Alert as FlowbiteAlert } from 'flowbite-react';
 
 interface AlertProps {
     message?: string;
-    color?: "success" | "failure"; 
+    color?: "success" | "failure" | "warning"; 
     show: boolean;
 }
 

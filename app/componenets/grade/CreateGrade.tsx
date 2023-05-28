@@ -3,6 +3,7 @@ import React from 'react'
 import { Button, Checkbox, Label, Modal, Spinner, TextInput, } from 'flowbite-react'
 import { useState, useEffect, useRef } from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { createDocument } from '@/app/utils/ApiUtils';
 
 const CreateGrade = (props: any) => {
 
@@ -27,16 +28,12 @@ const CreateGrade = (props: any) => {
         setVisible(false);
         setCreating(true);
         try {
-            await fetch('/api/mongodb/insertOne/grades', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ details: details, ignoreLateArrival: ignoreLateArrival, ignoreEarlyDeparture: ignoreEarlyDeparture, active: active }),
-              });
 
-              setCreating(false);
-              setCreated(true);
+
+            await createDocument('grades', { details: details, ignoreLateArrival: ignoreLateArrival, ignoreEarlyDeparture: ignoreEarlyDeparture, active: active });
+
+            setCreating(false);
+            setCreated(true);
             props.alertItemCreatedInfo();
             props.setReload(true);
 
@@ -67,7 +64,7 @@ const CreateGrade = (props: any) => {
     return (
         <React.Fragment>
             <button className="btn" onClick={() => setVisible(true)}>
-                <FaPlus className="text-4xl"/>
+                <FaPlus className="text-4xl" />
             </button>
             <Modal
                 show={creating}
@@ -92,7 +89,7 @@ const CreateGrade = (props: any) => {
                 </Modal.Body>
 
             </Modal>
-            
+
             <Modal
                 show={visible}
                 dismissible={true}
@@ -151,8 +148,8 @@ const CreateGrade = (props: any) => {
                             </Label>
                         </div>
                         <div className="flex justify-between">
-                            
-                            <Button onClick={() => {  createItem();}} >
+
+                            <Button onClick={() => { createItem(); }} >
                                 Create
                             </Button>
 
