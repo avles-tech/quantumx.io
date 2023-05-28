@@ -50,6 +50,7 @@ const Departments = () => {
       </div>
       <div className="relative overflow-x-auto m-8">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      {/* test */}
         <LoadingIndicator isLoading={isLoading} />
         {!isLoading && (
           <DepartmentsTable
