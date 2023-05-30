@@ -41,3 +41,18 @@ export async function updateDocument(collectionName: string, documentId: string,
         throw new Error(`HTTP error! status: ${response.status}`);
     }
 }
+
+// create a new document
+export async function createDocument(collectionName: string, document: any): Promise<void> {
+    const response = await fetch(`/api/mongodb/insertOne/${collectionName}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(document),
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+}

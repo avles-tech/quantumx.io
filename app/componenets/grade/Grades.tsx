@@ -13,18 +13,18 @@ import SearchBar from '../SearchBar';
 import LoadingIndicator from '../LoadingIndicator';
 
 const Grades = () => {
-    const [showItemCreatedInfo, alertItemCreatedInfo] = useAlert();
-    const [showItemDeletedInfo, alertItemDeletedInfo] = useAlert();
-    const [showItemUpdatedInfo, alertItemUpdatedInfo] = useAlert();
     const [page, setPage, nextPage, previousPage, itemsPerPage] = usePagination();
     const [searchQuery, setSearchQuery] = useSearch();
     const [data, setData] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    //const [data, isLoading, setData] = useDataFetch(() => fetchDocuments('grades'));
     const filteredData = useDataFilter(data, searchQuery, page, itemsPerPage);
     const [reloadCount, setReloadCount] = useState(0);
 
+    // For alert
+    const [alertMessage, setAlertMessage] = useState<string | undefined>();
+    const [alertColor, setAlertColor] = useState<'success' | 'failure' | 'warning' |undefined>();
+    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,18 +41,19 @@ const Grades = () => {
         setReloadCount(count => count + 1);
     };
 
+    const handleAlert = (message: string, color: 'success' | 'failure') => {
+        setAlertMessage(message);
+        setAlertColor(color);
+        setShowAlert(true);
+    };
 
     return (
         <>
             <h3> Grades</h3>
-            {showItemDeletedInfo ? <Alert message="Item deleted." color="failure" show={showItemDeletedInfo} /> : null}
-
-            {showItemCreatedInfo ? <Alert message="Item created." color="success" show={showItemCreatedInfo} /> : null}
-
-            {showItemUpdatedInfo ? <Alert message="Item updated." color="success" show={showItemUpdatedInfo} /> : null}
+            {showAlert ? <Alert message={alertMessage} color={alertColor} show={showAlert} /> : null}
 
             <div className="flex justify-end mb-5">
-                <CreateGrade alertItemCreatedInfo={alertItemCreatedInfo} setReload={reload} />
+                <CreateGrade alertItemCreatedInfo={() => handleAlert('Item created.', 'success')} setReload={reload} />
             </div>
             <div className="relative overflow-x-auto m-8">
                 <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
@@ -60,8 +61,8 @@ const Grades = () => {
                 {!isLoading &&
                     <GradesTable
                         data={filteredData}
-                        alertItemDeletedInfo={alertItemDeletedInfo}
-                        alertItemUpdatedInfo={alertItemUpdatedInfo}
+                        alertItemDeletedInfo={() => handleAlert('Item deleted.', 'failure')}
+                        alertItemUpdatedInfo={() => handleAlert('Item updated.', 'success')}
                         setReload={reload}
                     />
                 }
