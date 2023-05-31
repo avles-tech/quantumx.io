@@ -10,8 +10,8 @@ const GradeFilter = (props: any) => (
 export const GradeList = () => (
     <>
     <h1>Grade List</h1>
-    <List filters={<GradeFilter />}  >
-        <Datagrid rowClick="edit">
+    <List filters={<GradeFilter/>}  >
+        <Datagrid rowClick="edit"  >
             <TextField source="details" />
             <BooleanField source="ignoreLateArrival" title="Ignore Late Arrival" />
             <BooleanField source="ignoreEarlyDeparture" title="Ignore Early Departure" />

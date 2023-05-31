@@ -15,7 +15,7 @@ import { EmployeeEdit, EmployeeList, EmployeeCreate } from "./employees";
 import { HolidayTypeEdit, HolidayTypeList, HolidayTypeCreate } from "./holidayTypes";
 import { DevicesEdit, DevicesList, DevicesCreate } from "./devices";
 import { RosterEdit, RosterList, RosterCreate } from "./roster";
-import { green, purple } from "@mui/material/colors";
+import { green, purple ,indigo} from "@mui/material/colors";
 import { QAppLayout } from "./QAppLayout";
 import { createTheme } from "@mui/material";
 
@@ -24,11 +24,25 @@ const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-C
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: indigo[500],
     },
     secondary: {
       main: green[500],
     },
+  },
+} , {
+  components: {
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          '&.MuiTableCell-head': {
+            backgroundColor: 'blue',  // Replace with your color
+            color: '#ffffff',
+          },
+        },
+      },
+    },
+    
   },
 });
 
