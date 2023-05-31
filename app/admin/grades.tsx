@@ -1,14 +1,16 @@
 'use client '
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, BooleanInput, Create, Filter } from "react-admin";
 
 const GradeFilter = (props: any) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <TextInput label="Search" source="q" alwaysOn  />
     </Filter>
 );
 
 export const GradeList = () => (
-    <List filters={<GradeFilter />} >
+    <>
+    <h1>Grade List</h1>
+    <List filters={<GradeFilter />}  >
         <Datagrid rowClick="edit">
             <TextField source="details" />
             <BooleanField source="ignoreLateArrival" title="Ignore Late Arrival" />
@@ -17,6 +19,7 @@ export const GradeList = () => (
 
         </Datagrid>
     </List>
+    </>
 );
 
 export const GradeEdit = () => (
