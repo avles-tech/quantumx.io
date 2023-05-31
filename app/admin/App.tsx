@@ -1,6 +1,6 @@
 'use client'
 import * as React from "react";
-import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
+import { Admin, Resource, ListGuesser, EditGuesser, ThemeProvider } from 'react-admin';
 import { fetchUtils } from 'ra-core';
 import simpleRestProvider from 'ra-data-simple-rest';
 
@@ -15,18 +15,13 @@ import { EmployeeEdit, EmployeeList, EmployeeCreate } from "./employees";
 import { HolidayTypeEdit, HolidayTypeList, HolidayTypeCreate } from "./holidayTypes";
 import { DevicesEdit, DevicesList, DevicesCreate } from "./devices";
 import { RosterEdit, RosterList, RosterCreate } from "./roster";
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { green, purple } from "@mui/material/colors";
 import { QAppLayout } from "./QAppLayout";
+import { createTheme } from "@mui/material";
 
 const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-Count');
 
 const theme = createTheme({
-  props: {
-    MuiButtonBase: {
-      disableRipple: true,
-    },
-  },
   palette: {
     primary: {
       main: purple[500],
@@ -40,7 +35,7 @@ const theme = createTheme({
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider >
       <Admin dataProvider={dataProvider} theme={theme} layout={QAppLayout}>
         <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate} />
         <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} />
