@@ -75,8 +75,8 @@ export async function DELETE(request: Request, {
 
     const { db } = await connectToDatabase();
 
-    const data = await db.collection(collectionName).deleteOne({"_id": new ObjectId(_id)});
-    
+    const data = await db.collection(collectionName).deleteOne({ "_id": new ObjectId(_id) });
+
     return NextResponse.json(data);
 
   } catch (error) {
