@@ -2,7 +2,7 @@ import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, R
 
 const EmployeesFilter = (props: any) => (
     <Filter {...props}>
-      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '500px' } }} />
     </Filter>
   );
 

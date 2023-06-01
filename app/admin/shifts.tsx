@@ -2,7 +2,7 @@ import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, R
 
 const ShiftsFilter = (props: any) => (
     <Filter {...props}>
-      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '100px' } }} />
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '500px' } }} />
     </Filter>
   );
 

@@ -4,7 +4,7 @@ import QDatagrid from "./QDatagrid";
 
 const GradeFilter = (props: any) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+        <TextInput label="Search" source="q" alwaysOn  />
     </Filter>
 );
 
