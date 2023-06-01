@@ -12,11 +12,11 @@ export const CompanyDetailsList = () => (
       <h1>Company List</h1>
       <List filters={<CompanyDetailsFilter />}>
         <Datagrid rowClick="edit">
-          <TextField source="companyCode" />
-          <TextField source="companyName" />
-          <TextField source="companyDescription" />
+          <TextField source="company Code" label='Company Code'/>
+          <TextField source="companyName" label='Company Name'/>
+          <TextField source="companyDescription" label='Company Description'/>
           <TextField source="sector" />
-          <TextField source="registrationId" />
+          <TextField source="registrationId" label='Registration ID'/>
           <TextField source="address" />
           <TextField source="phoneNumber" />
         </Datagrid>
@@ -27,7 +27,7 @@ export const CompanyDetailsList = () => (
 export const CompanyDetailsEdit = () => (
     <Edit>
         <SimpleForm>
-            <TextInput source="Company Code" />
+            <TextInput source="Company Code" options={{ label: 'Company Code' }} />
             <TextInput source="Company Name" />
             <TextInput source="Company Description" />
             <TextInput source="Sector" />
@@ -41,7 +41,7 @@ export const CompanyDetailsEdit = () => (
 export const CompanyDetailsCreate = () => (
     <Create>
         <SimpleForm>
-        <TextInput source="Company Code" />
+        <TextInput source="Company Code" options={{ label: 'Company Code' }}/>
             <TextInput source="Company Name" />
             <TextInput source="Company Description" />
             <TextInput source="Sector" />
