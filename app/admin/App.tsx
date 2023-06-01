@@ -25,8 +25,8 @@ const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-C
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ffffff', // white background
-      contrastText: '#000000', // black text
+      main: indigo[500], // white background
+      contrastText: 'white', // black text
     },
     secondary: {
       main: green[500],
