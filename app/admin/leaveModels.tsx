@@ -1,14 +1,23 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
+
+const LeaveModelsFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
 
 export const LeaveModelList = () => (
-    <List>
+    <>
+        <h1>Leave Models List</h1>
+        <List filters={<LeaveModelsFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="shortCode" />
             <TextField source="details" />
             <BooleanField source="active" title="Active" />
-
         </Datagrid>
     </List>
+    </>
 );
 
 export const LeaveModelEdit = () => (

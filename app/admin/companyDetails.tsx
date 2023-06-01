@@ -1,18 +1,28 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
+
+const CompanyDetailsFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
 
 export const CompanyDetailsList = () => (
-    <List>
+    <>
+      <h1>Company List</h1>
+      <List filters={<CompanyDetailsFilter />}>
         <Datagrid rowClick="edit">
-            <TextField source="Company Code" />
-            <TextField source="Company Name" />
-            <TextField source="Company Description" />
-            <TextField source="Sector" />
-            <TextField source="Registration ID" />
-            <TextField source="Address" />
-            <TextField source="Phone Number" />
+          <TextField source="companyCode" />
+          <TextField source="companyName" />
+          <TextField source="companyDescription" />
+          <TextField source="sector" />
+          <TextField source="registrationId" />
+          <TextField source="address" />
+          <TextField source="phoneNumber" />
         </Datagrid>
-    </List>
-);
+      </List>
+    </>
+  );
 
 export const CompanyDetailsEdit = () => (
     <Edit>

@@ -1,14 +1,24 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
 
-export const DevicesList = () => (
-    <List>
+const DevicesFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
+
+  export const DevicesList = () => (
+    <>
+      <h1>Devices List</h1>
+      <List filters={<DevicesFilter />}>
         <Datagrid rowClick="edit">
-            <TextField source="Machine Name" />
-            <TextField source="IP Address" />
-            <TextField source="Port" />
+          <TextField source="machineName" />
+          <TextField source="ipAddress" />
+          <TextField source="port" />
         </Datagrid>
-    </List>
-);
+      </List>
+    </>
+  );
 
 export const DevicesEdit = () => (
     <Edit>

@@ -1,7 +1,17 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, ReferenceField } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, ReferenceField, Filter } from "react-admin";
+
+
+const GeoLocationsFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
 
 export const GeoLocationList = () => (
-    <List>
+    <>
+        <h1>Geo Locations List</h1>
+        <List filters={<GeoLocationsFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="shortCode" />
             <TextField source="details" />
@@ -9,6 +19,7 @@ export const GeoLocationList = () => (
 
         </Datagrid>
     </List>
+</>
 );
 
 export const GeoLocationEdit = () => (

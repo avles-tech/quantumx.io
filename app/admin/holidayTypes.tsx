@@ -1,13 +1,24 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
+
+
+const HolidayTypesFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
 
 export const HolidayTypeList = () => (
-    <List>
+    <>
+    <h1>Holiday Types List</h1>
+    <List filters={<HolidayTypesFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="Type" />
             <TextField source="Details" />
 
         </Datagrid>
     </List>
+</>
 );
 
 export const HolidayTypeEdit = () => (
