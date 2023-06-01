@@ -36,13 +36,12 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '&.MuiTableCell-head': {
-            backgroundColor: 'blue',  // Replace with your color
+            backgroundColor: indigo[500],  // Replace with your color
             color: '#ffffff',
           },
-        },
+        }, 
       },
     },
-    
   },
 });
 
@@ -51,10 +50,10 @@ const App = () => {
   return (
     <ThemeProvider >
       <Admin dataProvider={dataProvider} theme={theme} layout={QAppLayout}>
-        <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate} />
+        <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate}  />
         <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} />
         <Resource name="shifts" list={ShiftList} edit={ShiftEdit} create={ShiftCreate} recordRepresentation="shortCode" />
-        <Resource name="geoLocations" list={GeoLocationList} edit={GeoLocationEdit} create={GeoLocationCreate} />
+        <Resource name="geoLocations" list={GeoLocationList} edit={GeoLocationEdit} create={GeoLocationCreate} options={{ label: 'GEO Locations' }} />
         <Resource name="leaveModels" list={LeaveModelList} edit={LeaveModelEdit} create={LeaveModelCreate} />
         <Resource name="leaveTypes" list={LeaveTypeList} edit={LeaveTypeEdit} create={LeaveTypeCreate} />
         <Resource name="CompanyDetails" list={CompanyDetailsList} edit={CompanyDetailsEdit} create={CompanyDetailsCreate} />
