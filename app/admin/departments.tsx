@@ -1,15 +1,24 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
 
-export const DepartmentList = () => (
-    <List>
+const DepartmentsFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
+
+  export const DepartmentList = () => (
+    <>
+      <h1>Departments List</h1>
+      <List filters={<DepartmentsFilter />}>
         <Datagrid rowClick="edit">
-            <TextField source="shortCode" />
-            <TextField source="details" />
-            <BooleanField source="active" title="Active" />
-
+          <TextField source="shortCode" />
+          <TextField source="details" />
+          <BooleanField source="active" label="Active" />
         </Datagrid>
-    </List>
-);
+      </List>
+    </>
+  );
 
 export const DepartmentEdit = () => (
     <Edit>

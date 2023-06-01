@@ -44,11 +44,11 @@ const App = () => {
         <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} />
         <Resource name="shifts" list={ShiftList} edit={ShiftEdit} create={ShiftCreate} recordRepresentation="shortCode" />
         <Resource name="geoLocations" list={GeoLocationList} edit={GeoLocationEdit} create={GeoLocationCreate} options={{ label: 'GEO Locations' }} />
-        <Resource name="leaveModels" list={LeaveModelList} edit={LeaveModelEdit} create={LeaveModelCreate} />
-        <Resource name="leaveTypes" list={LeaveTypeList} edit={LeaveTypeEdit} create={LeaveTypeCreate} />
-        <Resource name="CompanyDetails" list={CompanyDetailsList} edit={CompanyDetailsEdit} create={CompanyDetailsCreate} />
+        <Resource name="leaveModels" list={LeaveModelList} edit={LeaveModelEdit} create={LeaveModelCreate} options={{ label: 'Leave Models' }}/>
+        <Resource name="leaveTypes" list={LeaveTypeList} edit={LeaveTypeEdit} create={LeaveTypeCreate} options={{ label: 'Leave Types' }}/>
+        <Resource name="CompanyDetails" list={CompanyDetailsList} edit={CompanyDetailsEdit} create={CompanyDetailsCreate} options={{ label: 'Company Details' }}/>
         <Resource name="employee" list={EmployeeList} edit={EmployeeEdit} create={EmployeeCreate} />
-        <Resource name="holidayTypes" list={HolidayTypeList} edit={HolidayTypeEdit} create={HolidayTypeCreate} />
+        <Resource name="holidayTypes" list={HolidayTypeList} edit={HolidayTypeEdit} create={HolidayTypeCreate} options={{ label: 'Holiday Types' }}/>
         <Resource name="devices" list={DevicesList} edit={DevicesEdit} create={DevicesCreate} />
         <Resource name="roster" list={RosterList} edit={RosterEdit} create={RosterCreate} />
       </Admin>

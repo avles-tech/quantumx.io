@@ -1,7 +1,16 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
+
+const EmployeesFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '1000px' } }} />
+    </Filter>
+  );
+
 
 export const EmployeeList = () => (
-    <List>
+    <>
+        <h1>Employees List</h1>
+        <List filters={<EmployeesFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="Emp. Code" />
             <TextField source="TRT ID" />
@@ -29,6 +38,7 @@ export const EmployeeList = () => (
             <TextField source="Address" />
         </Datagrid>
     </List>
+</>
 );
 
 export const EmployeeEdit = () => (

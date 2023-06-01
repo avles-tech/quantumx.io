@@ -1,7 +1,15 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, DateField, TimeInput } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, DateField, TimeInput, Filter } from "react-admin";
+
+const ShiftsFilter = (props: any) => (
+    <Filter {...props}>
+      <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '100px' } }} />
+    </Filter>
+  );
 
 export const ShiftList = () => (
-    <List>
+    <>
+        <h1>Shift List</h1>
+        <List filters={<ShiftsFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="shortCode" />
             <TextField source="details" />
@@ -17,6 +25,7 @@ export const ShiftList = () => (
             <BooleanField source='holiDayPassingMidNight' />
         </Datagrid>
     </List>
+    </>
 );
 
 export const ShiftEdit = () => (
