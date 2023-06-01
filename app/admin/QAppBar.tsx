@@ -11,8 +11,12 @@ const SettingsButton = () => (
 
 export const QAppBar = () => (
     <AppBar color="primary">
-        
-        <div> Quantumx.io </div>
+        <Box display="flex" alignItems="center">
+            <img src="https://flowbite.com/docs/images/logo.svg" alt="Quantumx.io" style={{ maxHeight: '35px', marginRight: '20px' }}
+            height={40} />
+
+            <div> Quantumx.io </div></Box>
+
         <Box component="span" flex={1} />
         <Search />
         <SettingsButton />

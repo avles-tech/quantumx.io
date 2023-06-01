@@ -18,38 +18,28 @@ import { RosterEdit, RosterList, RosterCreate } from "./roster";
 import { green, purple ,indigo} from "@mui/material/colors";
 import { QAppLayout } from "./QAppLayout";
 import { createTheme } from "@mui/material";
+import Dashboard from "./Dashboard";
 
 const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-Count');
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: indigo[500],
+      main: '#ffffff', // white background
+      contrastText: '#000000', // black text
     },
     secondary: {
       main: green[500],
     },
   },
-} , {
-  components: {
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          '&.MuiTableCell-head': {
-            backgroundColor: indigo[500],  // Replace with your color
-            color: '#ffffff',
-          },
-        }, 
-      },
-    },
-  },
 });
+
 
 
 const App = () => {
   return (
     <ThemeProvider >
-      <Admin dataProvider={dataProvider} theme={theme} layout={QAppLayout}>
+      <Admin dataProvider={dataProvider} theme={theme} layout={QAppLayout} dashboard={Dashboard}>
         <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate}  />
         <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} />
         <Resource name="shifts" list={ShiftList} edit={ShiftEdit} create={ShiftCreate} recordRepresentation="shortCode" />
