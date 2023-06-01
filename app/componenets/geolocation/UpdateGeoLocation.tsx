@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Alert, Button, Checkbox, Label, Modal, Spinner, TextInput } from 'flowbite-react';
 
@@ -103,7 +104,7 @@ const UpdateGeoLocation = (props: any) => {
             </h3>
             <div className="flex justify-center gap-4">
               <Button color="failure" onClick={() => deleteItem()}>
-                Yes, I'm sure
+                 Yes, I'm sure
               </Button>
               <Button color="gray" onClick={() => setDeleteConfirmation(false)}>
                 No, cancel
