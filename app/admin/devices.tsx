@@ -12,9 +12,9 @@ const DevicesFilter = (props: any) => (
       <h1>Devices List</h1>
       <List filters={<DevicesFilter />}>
         <Datagrid rowClick="edit">
-          <TextField source="machineName" />
-          <TextField source="ipAddress" />
-          <TextField source="port" />
+          <TextField source="machineName" label='Machine Name' />
+          <TextField source="ipAddress" label='IP Address'/>
+          <TextField source="port" label='Port'/>
         </Datagrid>
       </List>
     </>

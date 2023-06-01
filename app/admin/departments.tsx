@@ -11,10 +11,10 @@ const DepartmentsFilter = (props: any) => (
     <>
       <h1>Departments List</h1>
       <List filters={<DepartmentsFilter />}>
-        <Datagrid rowClick="edit">
-          <TextField source="shortCode" />
-          <TextField source="details" />
-          <BooleanField source="active" label="Active" />
+        <Datagrid rowClick="edit" >
+          <TextField source="shortCode" label='Short Code'/>
+          <TextField source="details" label='Details'/>
+          <BooleanField source="active" label='Active' />
         </Datagrid>
       </List>
     </>

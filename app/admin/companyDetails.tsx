@@ -12,13 +12,13 @@ export const CompanyDetailsList = () => (
     <h1>Company List</h1>
     <List filters={<CompanyDetailsFilter />} perPage={25} sort={{ field: 'companyName', order: 'ASC' }}>
       <Datagrid rowClick="edit">
-        <TextField source="companyCode" label="Company Code" sortable />
-        <TextField source="companyName" label="Company Name" sortable />
-        <TextField source="companyDescription" label="Company Description" sortable />
-        <TextField source="sector" label="Sector" sortable />
-        <TextField source="registrationId" label="Registration ID" sortable />
-        <TextField source="address" label="Address" sortable />
-        <TextField source="phoneNumber" label="Phone Number" sortable />
+        <TextField source="companyCode" label="Company Code"  />
+        <TextField source="companyName" label="Company Name"  />
+        <TextField source="companyDescription" label="Company Description"  />
+        <TextField source="sector" label="Sector"  />
+        <TextField source="registrationId" label="Registration ID"  />
+        <TextField source="address" label="Address" />
+        <TextField source="phoneNumber" label="Phone Number" />
       </Datagrid>
     </List>
   </>
