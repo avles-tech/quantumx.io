@@ -23,6 +23,8 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          echo Deleting old release zip file
+          rm -rf release.zip
           echo Deleting old node_modules folder
           rm -rf node_modules
           echo Deleting package-lock.json
@@ -32,13 +34,13 @@ jobs:
           npm run build --if-present
 
       - name: Zip artifact for deployment
-        run: zip release1.zip ./* -r
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: release1.zip
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -54,7 +56,7 @@ jobs:
           name: node-app
 
       - name: unzip artifact for deployment
-        run: unzip release1.zip
+        run: unzip release.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
