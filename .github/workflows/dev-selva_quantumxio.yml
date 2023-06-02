@@ -23,6 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          echo Deleting old release zip file
+          rm -rf release.zip
+          rm -rf release1.zip
           echo Deleting old node_modules folder
           rm -rf node_modules
           echo Deleting package-lock.json
