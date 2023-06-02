@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateInput, SelectInput } from "react-admin";
 
 const EmployeesFilter = (props: any) => (
     <Filter {...props}>
@@ -75,30 +75,65 @@ export const EmployeeEdit = () => (
 export const EmployeeCreate = () => (
     <Create>
         <SimpleForm>
-        <TextInput source="Emp. Code" />
+        <h1>Create Employee Details</h1>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '25px' }}>
+            <TextInput source="Emp. Code" />
             <TextInput source="TRT ID" />
             <TextInput source="Name with Initial" />
             <BooleanInput source="active" title="Active" />
+        </div>    
+        <h2>Company</h2>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '8px' }}>
             <TextInput source="Department" />
             <TextInput source="Location" />
             <TextInput source="Position" />
+         </div>   
+         <div style={{ display: 'flex', gap: '20px', marginBottom:'25px'}}>
             <TextInput source="Leave Model" />
-            <TextInput source="Date of Join" />
+            <DateInput source="Date of Join" />
             <BooleanInput source="Job Confirmed" title="Active" />
+        </div>
+        <h2>Personal</h2>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '4px' }}>
             <TextInput source="NIC" />
             <TextInput source="First Name" />
             <TextInput source="Middle Name" />
             <TextInput source="Last Name" />
-            <TextInput source="Date of Birth" />
+        </div>
+        <div style={{ display: 'flex', gap: '30px', marginBottom: '25px'}}>
+            <DateInput source="Date of Birth" />
             <TextInput source="Remarks" />
-            <TextInput source="Gender" />
-            <TextInput source="Married" />
+            <SelectInput
+                source="Gender"
+                choices={[
+                    { id: 'male', name: 'Male' },
+                    { id: 'female', name: 'Female' },
+                    { id: 'other', name: 'Other' },
+          ]}
+        />
+            <SelectInput
+                source="Social Status"
+                choices={[
+                    { id: 'married', name: 'Married' },
+                    { id: 'single', name: 'Single' },
+                    { id: 'divorced', name: 'Divorced' },
+                    { id: 'widowed', name: 'Widowed' },
+          ]}
+        />
+        </div>    
+        
+        <h2>Contact</h2>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '2px' }}>
             <TextInput source="Mobile" />
             <TextInput source="Home Tel" />
             <TextInput source="Home Address" />
+        </div>
+        <h4>Emergency</h4>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '25px'}}>
             <TextInput source="Emergency Contact Person" />
             <TextInput source=" Tel" />
             <TextInput source="Address" />
+        </div>
         </SimpleForm>
     </Create>
 );

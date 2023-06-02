@@ -31,18 +31,51 @@ export const ShiftList = () => (
 export const ShiftEdit = () => (
     <Edit>
         <SimpleForm>
+        <h1>Edit Shift</h1>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+        <div>
             <TextInput source="shortCode" />
+        </div>
+        <div>
             <TextInput source="details" />
+        </div>
+        <div>
             <BooleanInput source="active" title="Active" />
-            <TimeInput source="fullDayStart" />
-            <TimeInput source="fullDayEnd" />
-            <BooleanInput source='fullDayPassingMidNight' />
+        </div>
+        </div>    
+            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div>
+          <TimeInput source="fullDayStart" />
+        </div>
+        <div>
+          <TimeInput source="fullDayEnd" />
+        </div>
+        <div>
+        <BooleanInput source='fullDayPassingMidNight' />
+        </div>
+        </div>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div>
             <TimeInput source="halfDayStart" />
+        </div>    
+        <div>
             <TimeInput source="halfDayEnd" />
+        </div>
+        <div>
             <BooleanInput source='halfDayPassingMidNight' />
+        </div>    
+        </div>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div>
             <TimeInput source="holiDayStart" />
+        </div>
+        <div>    
             <TimeInput source="holiDayEnd" />
+        </div>    
+        <div>
             <BooleanInput source='holiDayPassingMidNight' />
+        </div>    
+        </div>
         </SimpleForm>
     </Edit>
 );
@@ -51,18 +84,51 @@ export const ShiftCreate = () => (
     <Create>
         <SimpleForm>
 
-        <TextInput source="shortCode" />
+        <h1>Create New Shift</h1>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+        <div>
+            <TextInput source="shortCode" />
+        </div>
+        <div>
             <TextInput source="details" />
+        </div>
+        <div>
             <BooleanInput source="active" title="Active" />
-            <TimeInput source="fullDayStart" />
-            <TimeInput source="fullDayEnd" />
-            <BooleanInput source='fullDayPassingMidNight' />
+        </div>
+        </div>    
+            <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div>
+          <TimeInput source="fullDayStart" />
+        </div>
+        <div>
+          <TimeInput source="fullDayEnd" />
+        </div>
+        <div>
+        <BooleanInput source='fullDayPassingMidNight' />
+        </div>
+        </div>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div>
             <TimeInput source="halfDayStart" />
+        </div>    
+        <div>
             <TimeInput source="halfDayEnd" />
+        </div>
+        <div>
             <BooleanInput source='halfDayPassingMidNight' />
+        </div>    
+        </div>
+        <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
+        <div>
             <TimeInput source="holiDayStart" />
+        </div>
+        <div>    
             <TimeInput source="holiDayEnd" />
+        </div>    
+        <div>
             <BooleanInput source='holiDayPassingMidNight' />
+        </div>    
+        </div>    
         </SimpleForm>
     </Create>
 );
