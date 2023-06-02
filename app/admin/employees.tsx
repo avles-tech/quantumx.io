@@ -21,13 +21,13 @@ export const EmployeeList = () => (
         <List filters={<EmployeesFilter/>}>
         <Datagrid rowClick="edit">
             <TextField source="Emp. Code" label='Emp. Code' />
-            <TextField source="TRT ID"  label='TRT ID'/>
+            {/* <TextField source="TRT ID"  label='TRT ID'/> */}
             <TextField source="Name with Initial" label='Name with Initial'/>
             <BooleanField source="active" title="Active" />
             <TextField source="Department" />
             <TextField source="Location" />
             <TextField source="Position" />
-            <TextField source="Leave Model" label='Leave Model'/>
+            {/* <TextField source="Leave Model" label='Leave Model'/>
             <TextField source="Date of Join" label='Date of Join' />
             <BooleanField source="Job Confirmed" title="Active" />
             <TextField source="NIC" label='NIC'/>
@@ -43,7 +43,7 @@ export const EmployeeList = () => (
             <TextField source="Home Address" label='Home Address'/>
             <TextField source="Emergency Contact Person" label='Emergency Contact Person' />
             <TextField source=" Tel" label='Tel'/>
-            <TextField source="Address" />
+            <TextField source="Address" /> */}
         </Datagrid>
     </List>
 </>
@@ -167,7 +167,7 @@ export const EmployeeCreate = () => (
         <div style={{ display: 'flex', gap: '20px', marginBottom: '2px' }}>
             <TextInput source="Mobile" validate={validateTel}/>
             <TextInput source="Home Tel" label='Home Tel'validate={validateTel} />
-            <TextInput source="Home Address" label='Home Address'/>
+            <TextInput source="Home Address" label='Home Address' style={{ flex: 1, minWidth: '600px' }}/>
         </div>
         <h4>Emergency</h4>
         <div style={{ display: 'flex', gap: '20px', marginBottom: '25px'}}>

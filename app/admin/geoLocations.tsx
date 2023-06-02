@@ -36,9 +36,9 @@ export const GeoLocationEdit = () => (
 export const GeoLocationCreate = () => (
     <Create>
         <SimpleForm>
-            <TextInput source="shortCode" />
-            <TextInput source="details" />
-            <ReferenceInput source="shiftId" reference="shifts" />
+            <TextInput source="shortCode" label='Short Code' />
+            <TextInput source="details" label='Details'/>
+            <ReferenceInput source="shiftId" reference="shifts" label='Shift ID'/>
         </SimpleForm>
     </Create>
 );
