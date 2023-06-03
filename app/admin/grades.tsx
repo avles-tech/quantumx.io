@@ -4,30 +4,28 @@ import QDatagrid from "./QDatagrid";
 
 const GradeFilter = (props: any) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn  />
+        <TextInput label="Search" source="q" alwaysOn />
     </Filter>
 );
 
 export const GradeList = () => (
     <>
-    <h1>Grade List</h1>
-    <List filters={<GradeFilter/>}  >
-        <QDatagrid rowClick="edit"  >
-            <TextField source="details" />
-            <BooleanField source="ignoreLateArrival" title="Ignore Late Arrival" />
-            <BooleanField source="ignoreEarlyDeparture" title="Ignore Early Departure" />
-            <BooleanField source="active" title="Active" />
+        <h1>Grade List</h1>
+        <List filters={<GradeFilter />}  >
+            <QDatagrid rowClick="edit"  >
+                <TextField source="details" />
+                <BooleanField source="ignoreLateArrival" title="Ignore Late Arrival" />
+                <BooleanField source="ignoreEarlyDeparture" title="Ignore Early Departure" />
+                <BooleanField source="active" title="Active" />
 
-        </QDatagrid>
-    </List>
+            </QDatagrid>
+        </List>
     </>
 );
 
 export const GradeEdit = () => (
     <Edit>
         <SimpleForm>
-            <TextInput source="id" disabled />
-
             <TextInput source="details" />
             <BooleanInput source="ignoreLateArrival" />
             <BooleanInput source="ignoreEarlyDeparture" />
@@ -37,9 +35,8 @@ export const GradeEdit = () => (
 );
 
 export const GradeCreate = () => (
-    <Create>
+    <Create redirect="list">
         <SimpleForm>
-            
             <TextInput source="details" />
             <BooleanInput source="ignoreLateArrival" />
             <BooleanInput source="ignoreEarlyDeparture" />
