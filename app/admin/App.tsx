@@ -9,7 +9,7 @@ import { DepartmentEdit, DepartmentList, DepartmentCreate } from "./departments"
 import { ShiftEdit, ShiftList, ShiftCreate } from "./shifts";
 import { GeoLocationEdit, GeoLocationList, GeoLocationCreate } from "./geoLocations";
 import { LeaveModelEdit, LeaveModelList, LeaveModelCreate } from "./leaveModels";
-import { LeaveTypeEdit, LeaveTypeList, LeaveTypeCreate } from "./LeaveTypes";
+import { LeaveTypeEdit, LeaveTypeList, LeaveTypeCreate } from "./leaveTypes";
 import { CompanyDetailsEdit, CompanyDetailsList, CompanyDetailsCreate } from "./companyDetails";
 import { EmployeeEdit, EmployeeList, EmployeeCreate } from "./employees";
 import { HolidayTypeEdit, HolidayTypeList, HolidayTypeCreate } from "./holidayTypes";
