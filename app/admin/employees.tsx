@@ -119,7 +119,10 @@ const EmployeeForm = (props: any) => (
                 <SelectInput optionText="details" />
             </ReferenceInput>
             <TextInput source="position" label='Position' />
-            <TextInput source="leaveModel" label='Leave Model' />
+            
+            <ReferenceInput source="leaveModelId" reference="leaveModels" label='Leave Model'>
+                <SelectInput optionText="details" />
+            </ReferenceInput>
             <DateInput source="doj" label='Date of Joining' />
             <BooleanInput source="jobConfirmed" label="Job Confirmed?" />
         </FormGrid>
