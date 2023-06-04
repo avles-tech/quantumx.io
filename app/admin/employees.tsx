@@ -40,7 +40,7 @@ export const EmployeeList = () => (
                 <TextField source="empId" label='Emp. Code' />
 
                 <TextField source="name" label='Name with Initial' />
-                <BooleanField source="active" title="Active" />
+                
                 <TextField source="department" label="Department" />
 
                 <TextField source="position" label="Position" />
