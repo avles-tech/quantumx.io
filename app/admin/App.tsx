@@ -20,6 +20,7 @@ import { QAppLayout } from "./QAppLayout";
 import { createTheme } from "@mui/material";
 import Dashboard from "./Dashboard";
 
+
 const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-Count');
 
 const theme = createTheme({

@@ -1,6 +1,7 @@
 import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, ReferenceField, Filter, SelectInput } from "react-admin";
 
 
+
 const GeoLocationsFilter = (props: any) => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '500px' } }} />
