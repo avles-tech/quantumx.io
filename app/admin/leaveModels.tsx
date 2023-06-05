@@ -35,16 +35,18 @@ export const LeaveModelList = () => (
         <h1>Leave Models List</h1>
         <List filters={<LeaveModelsFilter/>}>
         <Datagrid rowClick="edit">
-            <TextField source="shortCode" />
-            <TextField source="details" />
-            <BooleanField source="active" title="Active" />
+            <TextField source="shortCode" label='short Code'/>
+            <TextField source="details" label='Details'/>
+            <BooleanField source="active" title="Active" label='Active'/>
         </Datagrid>
     </List>
     </>
 );
 
 export const LeaveModelEdit = () => (
+    
     <Edit>
+            <h1>Edit Leave Model</h1>
         <LeaveModelForm/>
     </Edit>
 );
@@ -52,9 +54,10 @@ export const LeaveModelEdit = () => (
 export const LeaveModelCreate = () => (
     <Create>
         <SimpleForm>
-            <TextInput source="shortCode" />
-            <TextInput source="details" />
-            <BooleanInput source="active" />
+            <h1>Create Leave Model</h1>
+            <TextInput source="shortCode" label='short Code'/>
+            <TextInput source="details" label='Details'/>
+            <BooleanInput source="active" label='Active'/>
         </SimpleForm>
     </Create>
 );

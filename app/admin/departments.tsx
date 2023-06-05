@@ -23,6 +23,7 @@ export const DepartmentList = () => (
 export const DepartmentEdit = () => (
   <Edit>
     <SimpleForm>
+    <h1>Edit Department Details</h1>
       <TextInput source="shortCode" />
       <TextInput source="details" />
       <BooleanInput source="active" />
@@ -33,6 +34,7 @@ export const DepartmentEdit = () => (
 export const DepartmentCreate = () => (
   <Create redirect="list">
     <SimpleForm>
+      <h1>Create Department Details</h1>
       <TextInput source="shortCode" />
       <TextInput source="details" />
       <BooleanInput source="active" />

@@ -23,9 +23,10 @@ const DevicesFilter = (props: any) => (
 export const DevicesEdit = () => (
     <Edit>
         <SimpleForm>
-            <TextInput source="machineName" />
-            <TextInput source="ipAddress" />
-            <TextInput source="port" />
+        <h1>Edit Device Details</h1>
+            <TextInput source="machineName" label='Machine Name'/>
+            <TextInput source="ipAddress" label='IP Address'/>
+            <TextInput source="port" label='Port'/>
         </SimpleForm>
     </Edit>
 );
@@ -33,9 +34,10 @@ export const DevicesEdit = () => (
 export const DevicesCreate = () => (
     <Create>
         <SimpleForm>
-            <TextInput source="machineName" />
-            <TextInput source="ipAddress" />
-            <TextInput source="port" />
+            <h1>Create Device Details</h1>
+            <TextInput source="machineName" label='Machine Name'/>
+            <TextInput source="ipAddress" label='IP Address'/>
+            <TextInput source="port" label='Port'/>
         </SimpleForm>
     </Create>
 );
