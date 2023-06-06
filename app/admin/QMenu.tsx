@@ -5,15 +5,16 @@ import PeopleIcon from '@mui/icons-material/People';
 import LabelIcon from '@mui/icons-material/Label';
 import TimerIcon from '@mui/icons-material/Timer';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
 
-
-
+import NaturePeopleIcon from '@mui/icons-material/NaturePeople';
 
 export const QMenu = () => (
     <Menu>
         <Menu.DashboardItem />
-        <SubMenu primaryText="Human Resource" leftIcon={<PeopleIcon />}>
-            <Menu.ResourceItem name="CompanyDetails" />
+        <SubMenu primaryText="Human Resource" leftIcon={<SupervisorAccountIcon />}>
+            {/* <Menu.ResourceItem name="CompanyDetails"  /> */}
             <Menu.ResourceItem name="employee" />
             <Menu.ResourceItem name="geoLocations" />
             <Menu.ResourceItem name="grades" />
@@ -24,11 +25,13 @@ export const QMenu = () => (
             <Menu.ResourceItem name="shifts" />
             <Menu.ResourceItem name="holidayTypes" />
             <Menu.ResourceItem name="devices" />
+            <Menu.ResourceItem name="attendanceLog" />
         </SubMenu>
-        <SubMenu primaryText="Leave Management" leftIcon={<BeachAccessIcon />}>
+        <SubMenu primaryText="Leave Management" leftIcon={<Diversity1Icon />}>
             <Menu.ResourceItem name="leaveModels" />
             <Menu.ResourceItem name="leaveTypes" />
         </SubMenu>
+        
         <Menu.Item to="/custom-route" primaryText="Miscellaneous" leftIcon={<LabelIcon />} />
     </Menu>
 );

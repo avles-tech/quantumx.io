@@ -22,12 +22,17 @@
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
+    "express-session": "^1.17.3",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.4",
     "mongodb": "^5.5.0",
     "next": "^13.4.3",
+    "next-connect": "^1.0.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "postcss": "8.4.23",
     "prop-types": "^15.8.1",
     "ra-data-json-server": "^4.11.0",
@@ -42,6 +47,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/passport": "^1.0.12",
     "@types/styled-components": "^5.1.26"
   }
 }

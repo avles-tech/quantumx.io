@@ -19,6 +19,19 @@ import { green, purple ,indigo} from "@mui/material/colors";
 import { QAppLayout } from "./QAppLayout";
 import { createTheme } from "@mui/material";
 import Dashboard from "./Dashboard";
+import BookIcon from '@mui/icons-material/Book';
+import HMobiledataIcon from '@mui/icons-material/HMobiledata';
+import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
+import TuneIcon from '@mui/icons-material/Tune';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import FilterTiltShiftIcon from '@mui/icons-material/FilterTiltShift';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import AodIcon from '@mui/icons-material/Aod';
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import TimerIcon from '@mui/icons-material/Timer';
+import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
+import { AttendanceLogCreate, AttendanceLogEdit, AttendanceLogList } from "./attendanceLog";
 
 
 const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-Count');
@@ -41,17 +54,18 @@ const App = () => {
   return (
     <ThemeProvider >
       <Admin dataProvider={dataProvider} theme={theme} layout={QAppLayout} dashboard={Dashboard}>
-        <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate}  />
-        <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} />
-        <Resource name="shifts" list={ShiftList} edit={ShiftEdit} create={ShiftCreate} recordRepresentation="shortCode" />
-        <Resource name="geoLocations" list={GeoLocationList} edit={GeoLocationEdit} create={GeoLocationCreate} options={{ label: 'GEO Locations' }} />
-        <Resource name="leaveModels" list={LeaveModelList} edit={LeaveModelEdit} create={LeaveModelCreate} options={{ label: 'Leave Models' }}/>
-        <Resource name="leaveTypes" list={LeaveTypeList} edit={LeaveTypeEdit} create={LeaveTypeCreate} options={{ label: 'Leave Types' }}/>
+        <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate} icon={BookIcon} />
+        <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} icon={AccountTreeIcon}/>
+        <Resource name="shifts" list={ShiftList} edit={ShiftEdit} create={ShiftCreate} recordRepresentation="shortCode" icon={ManageHistoryIcon} />
+        <Resource name="geoLocations" list={GeoLocationList} edit={GeoLocationEdit} create={GeoLocationCreate} options={{ label: 'Locations' }} icon={LocationCityIcon} />
+        <Resource name="leaveModels" list={LeaveModelList} edit={LeaveModelEdit} create={LeaveModelCreate} options={{ label: 'Leave Models' }} icon={SettingsEthernetIcon} />
+        <Resource name="leaveTypes" list={LeaveTypeList} edit={LeaveTypeEdit} create={LeaveTypeCreate} options={{ label: 'Leave Types' }} icon={TuneIcon} />
         {/* <Resource name="CompanyDetails" list={CompanyDetailsList} edit={CompanyDetailsEdit} create={CompanyDetailsCreate} options={{ label: 'Company Details' }}/> */}
-        <Resource name="employee" list={EmployeeList} edit={EmployeeEdit} create={EmployeeCreate} />
-        <Resource name="holidayTypes" list={HolidayTypeList} edit={HolidayTypeEdit} create={HolidayTypeCreate} options={{ label: 'Holiday Types' }}/>
-        <Resource name="devices" list={DevicesList} edit={DevicesEdit} create={DevicesCreate} />
-        <Resource name="roster" list={RosterList} edit={RosterEdit} create={RosterCreate} />
+        <Resource name="employee" list={EmployeeList} edit={EmployeeEdit} create={EmployeeCreate} icon={ManageAccountsIcon} />
+        <Resource name="holidayTypes" list={HolidayTypeList} edit={HolidayTypeEdit} create={HolidayTypeCreate} options={{ label: 'Holiday Types' }} icon={HMobiledataIcon}/>
+        <Resource name="devices" list={DevicesList} edit={DevicesEdit} create={DevicesCreate} icon={AodIcon} />
+        <Resource name="roster" list={RosterList} edit={RosterEdit} create={RosterCreate} icon={ScheduleIcon}/>
+        <Resource name="attendanceLog" list={AttendanceLogList} edit={AttendanceLogEdit} create={AttendanceLogCreate} />
       </Admin>
     </ThemeProvider>
 

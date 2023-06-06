@@ -27,7 +27,8 @@ export const SubMenu = (props: SubMenuProps) => {
                     color: 'rgba(0, 0, 0, 0.54)',
                 }}
             >
-                {isOpen ? <ExpandMoreIcon /> : leftIcon}
+                {/* {isOpen ? <ExpandMoreIcon /> : leftIcon} */}
+                {leftIcon}
                 <ListItemText
                     inset
                     disableTypography

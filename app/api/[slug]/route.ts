@@ -41,11 +41,13 @@ export async function GET(request: Request, {
 
     const { searchParams } = new URL(request.url);
     const filter = searchParams.get('filter');
-    console.log(filter);
+    const q = JSON.parse(filter || '{}').q  || '' ;
+    const query = q ? { $text: { $search: q } } : {};
+    console.log(query)
 
 
 
-    let data = await db.collection(collectionName).find().toArray();
+    let data = await db.collection(collectionName).find(query).toArray();
 
     data = data.map((item: any) => {
       item.id = item._id;
