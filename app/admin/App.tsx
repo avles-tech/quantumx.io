@@ -31,6 +31,7 @@ import AodIcon from '@mui/icons-material/Aod';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import TimerIcon from '@mui/icons-material/Timer';
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
+import { AttendanceLogCreate, AttendanceLogEdit, AttendanceLogList } from "./attendanceLog";
 
 const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-Count');
 
@@ -63,6 +64,7 @@ const App = () => {
         <Resource name="holidayTypes" list={HolidayTypeList} edit={HolidayTypeEdit} create={HolidayTypeCreate} options={{ label: 'Holiday Types' }} icon={HMobiledataIcon}/>
         <Resource name="devices" list={DevicesList} edit={DevicesEdit} create={DevicesCreate} icon={AodIcon} />
         <Resource name="roster" list={RosterList} edit={RosterEdit} create={RosterCreate} icon={ScheduleIcon}/>
+        <Resource name="attendanceLog" list={AttendanceLogList} edit={AttendanceLogEdit} create={AttendanceLogCreate} />
       </Admin>
     </ThemeProvider>
 

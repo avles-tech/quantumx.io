@@ -25,11 +25,13 @@ export const QMenu = () => (
             <Menu.ResourceItem name="shifts" />
             <Menu.ResourceItem name="holidayTypes" />
             <Menu.ResourceItem name="devices" />
+            <Menu.ResourceItem name="attendanceLog" />
         </SubMenu>
         <SubMenu primaryText="Leave Management" leftIcon={<Diversity1Icon />}>
             <Menu.ResourceItem name="leaveModels" />
             <Menu.ResourceItem name="leaveTypes" />
         </SubMenu>
+        
         <Menu.Item to="/custom-route" primaryText="Miscellaneous" leftIcon={<LabelIcon />} />
     </Menu>
 );
