@@ -33,6 +33,7 @@ import TimerIcon from '@mui/icons-material/Timer';
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { AttendanceLogCreate, AttendanceLogEdit, AttendanceLogList } from "./attendanceLog";
 
+
 const dataProvider = simpleRestProvider('/api', fetchUtils.fetchJson, 'X-Total-Count');
 
 const theme = createTheme({

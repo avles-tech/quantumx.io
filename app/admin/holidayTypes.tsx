@@ -13,8 +13,8 @@ export const HolidayTypeList = () => (
     <h1>Holiday Types List</h1>
     <List filters={<HolidayTypesFilter/>}>
         <Datagrid rowClick="edit">
-            <TextField source="Type" />
-            <TextField source="Details" />
+            <TextField source="Type" label='Type'/>
+            <TextField source="Details" label='Details'/>
 
         </Datagrid>
     </List>
@@ -24,8 +24,9 @@ export const HolidayTypeList = () => (
 export const HolidayTypeEdit = () => (
     <Edit>
         <SimpleForm>
-            <TextInput source="Type" />
-            <TextInput source="Details" />
+            <h1>Edit Holiday Types</h1>
+            <TextInput source="Type" label='Type'/>
+            <TextInput source="Details" label='Details'/>
         </SimpleForm>
     </Edit>
 );
@@ -33,8 +34,9 @@ export const HolidayTypeEdit = () => (
 export const HolidayTypeCreate = () => (
     <Create>
         <SimpleForm>
-            <TextInput source="Type" />
-            <TextInput source="Details" />
+            <h1>Create Holiday Types</h1>
+            <TextInput source="Type" label='Type'/>
+            <TextInput source="Details" label='Details'/>
         </SimpleForm>
     </Create>
 );

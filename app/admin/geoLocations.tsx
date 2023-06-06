@@ -1,6 +1,7 @@
 import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, ReferenceField, Filter, SelectInput } from "react-admin";
 
 
+
 const GeoLocationsFilter = (props: any) => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '500px' } }} />
@@ -27,6 +28,7 @@ export const GeoLocationList = () => (
 export const GeoLocationEdit = () => (
     <Edit>
         <SimpleForm>
+            <h1>Edit Geo Location Details</h1>
             <TextInput source="shortCode" />
             <TextInput source="details" />
             <ReferenceInput source="shiftId" reference="shifts" label='Shift ID'>
@@ -39,6 +41,7 @@ export const GeoLocationEdit = () => (
 export const GeoLocationCreate = () => (
     <Create redirect="list">
         <SimpleForm>
+            <h1>Create Geo Location Details</h1>
             <TextInput source="shortCode" label='Short Code' />
             <TextInput source="details" label='Details' />
             <ReferenceInput source="shiftId" reference="shifts" label='Shift ID'>
