@@ -47,8 +47,8 @@ export async function GET(request: Request, {
 
     const range = searchParams.get('range');
     const rangeEx = JSON.parse(range || '{}');
-    const limit = rangeEx[1] - rangeEx[0] + 1;
-    const skip = rangeEx[0];
+    const limit = (rangeEx[1] - rangeEx[0] + 1) || 10;
+    const skip = rangeEx[0] || 0;
 
     let data = await db.collection(collectionName).find(query).skip(skip).limit(limit).toArray();
 

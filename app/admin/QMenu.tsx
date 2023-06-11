@@ -31,6 +31,10 @@ export const QMenu = () => (
             <Menu.ResourceItem name="leaveModels" />
             <Menu.ResourceItem name="leaveTypes" />
         </SubMenu>
+        <SubMenu primaryText="User Management" leftIcon={<PeopleIcon />}>
+            <Menu.ResourceItem name="users" />
+            
+        </SubMenu>
         
         <Menu.Item to="/custom-route" primaryText="Miscellaneous" leftIcon={<LabelIcon />} />
     </Menu>
