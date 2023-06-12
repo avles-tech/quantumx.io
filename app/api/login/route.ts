@@ -2,6 +2,7 @@ import { connectToDatabase } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
+import { signJWT } from "@/lib/token";
 
 export async function POST(request: Request) {
     try {
@@ -22,7 +23,12 @@ export async function POST(request: Request) {
         if (!isMatch) return NextResponse.error();
 
         // Sign JWT
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'secret', { expiresIn: 3600 });
+        //const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'secret', { expiresIn: 3600 });
+
+        const token = await signJWT(
+            { sub: user._id },
+            { exp: `60m` }
+          );
 
         return NextResponse.json({
             token,

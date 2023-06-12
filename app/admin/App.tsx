@@ -36,7 +36,12 @@ import authProvider from './authProvider';
 import { UserCreate, UserEdit, UserList } from "./users";
 import BadgeIcon from '@mui/icons-material/Badge';
 
-const httpClient = fetchUtils.fetchJson;
+const httpClient = (url: string, options: fetchUtils.Options = {}) => {
+  options.headers = new Headers(options.headers);
+  const token = localStorage.getItem('token');
+  options.headers.set('Authorization', `Bearer ${token}`);
+  return fetchUtils.fetchJson(url, options);
+}
 
 const dataProvider = simpleRestProvider('/api', httpClient, 'X-Total-Count');
 
@@ -104,7 +109,7 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider >
-      <Admin dataProvider={dataProvider} theme={theme} layout={QAppLayout} dashboard={Dashboard} authProvider={authProvider}>
+      <Admin dataProvider={myDataProvider} theme={theme} layout={QAppLayout} dashboard={Dashboard} authProvider={authProvider}>
         <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate} icon={BookIcon} />
         <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} icon={AccountTreeIcon}/>
         <Resource name="shifts" list={ShiftList} edit={ShiftEdit} create={ShiftCreate} recordRepresentation="shortCode" icon={ManageHistoryIcon} />

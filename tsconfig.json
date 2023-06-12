@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/componenets/CheckOrNotIcon.jsx", "app/grade/edit/page.jsx", "app/page.jsx", "app/componenets/Grades.tsx", "lib/mongodb.js", "app/api/login/route.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/componenets/CheckOrNotIcon.jsx", "app/grade/edit/page.jsx", "app/page.jsx", "app/componenets/Grades.tsx", "lib/mongodb.js", "app/api/login/route.ts", "verifyToken.js"],
   "exclude": ["node_modules"]
 }
