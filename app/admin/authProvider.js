@@ -16,9 +16,7 @@ export default {
         return httpClient(request)
             .then(({ json }) => {
                 if (json.token) {
-                    console.log(json.user);
                     localStorage.setItem('token', json.token);
-                   
                     localStorage.setItem('user', JSON.stringify(json.user));
                 } else {
                     throw new Error('Network response was not ok.');
@@ -33,7 +31,7 @@ export default {
     checkError: ({ status }) => {
         if (status === 401 || status === 403) {
             localStorage.removeItem('token');
-            ocalStorage.removeItem('user');
+            localStorage.removeItem('user');
             return Promise.reject();
         }
         return Promise.resolve();
@@ -44,12 +42,7 @@ export default {
     getPermissions: () => Promise.resolve(),
     getIdentity: () => {
         try {
-
-            console.log('user',localStorage.getItem('user'));
             const { id, fullName, avatar ,name } = JSON.parse(localStorage.getItem('user')) ;
-
-            console.log('id',id);
-
             return Promise.resolve({ id, fullName, avatar,name } );
         } catch (error) {
             return Promise.reject(error);

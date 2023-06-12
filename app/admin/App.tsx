@@ -34,6 +34,7 @@ import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { AttendanceLogCreate, AttendanceLogEdit, AttendanceLogList } from "./attendanceLog";
 import authProvider from './authProvider';
 import { UserCreate, UserEdit, UserList } from "./users";
+import BadgeIcon from '@mui/icons-material/Badge';
 
 const httpClient = fetchUtils.fetchJson;
 
@@ -115,8 +116,8 @@ const App = () => {
         <Resource name="holidayTypes" list={HolidayTypeList} edit={HolidayTypeEdit} create={HolidayTypeCreate} options={{ label: 'Holiday Types' }} icon={HMobiledataIcon}/>
         <Resource name="devices" list={DevicesList} edit={DevicesEdit} create={DevicesCreate} icon={AodIcon} />
         <Resource name="roster" list={RosterList} edit={RosterEdit} create={RosterCreate} icon={ScheduleIcon}/>
-        <Resource name="attendanceLog" list={AttendanceLogList} edit={AttendanceLogEdit} create={AttendanceLogCreate} />
-        <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} />
+        <Resource name="attendanceLog" list={AttendanceLogList} edit={AttendanceLogEdit} create={AttendanceLogCreate} options={{ label: 'Attendance Log' }} />
+        <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} icon={BadgeIcon}/>
       </Admin>
     </ThemeProvider>
 

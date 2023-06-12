@@ -8,7 +8,7 @@ import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
 
-import NaturePeopleIcon from '@mui/icons-material/NaturePeople';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export const QMenu = () => (
     <Menu>
@@ -31,7 +31,7 @@ export const QMenu = () => (
             <Menu.ResourceItem name="leaveModels" />
             <Menu.ResourceItem name="leaveTypes" />
         </SubMenu>
-        <SubMenu primaryText="User Management" leftIcon={<PeopleIcon />}>
+        <SubMenu primaryText="User Management" leftIcon={<AccountCircleIcon />}>
             <Menu.ResourceItem name="users" />
             
         </SubMenu>
