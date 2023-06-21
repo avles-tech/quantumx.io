@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateInput, SelectInput, Form , required} from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateInput, SelectInput, Form , required, ReferenceField} from "react-admin";
 import styled from 'styled-components';
 
 const FormGrid = styled.div`
@@ -41,9 +41,11 @@ export const EmployeeList = () => (
 
                 <TextField source="name" label='Name with Initial' />
                 
-                <TextField source="department" label="Department" />
+                <ReferenceField source="departmentId" reference="departments">
+                    <TextField source="details" />
+                </ReferenceField>
 
-                <TextField source="position" label="Position" />
+                <TextField source="position" label='Position' />
 
             </Datagrid>
         </List>

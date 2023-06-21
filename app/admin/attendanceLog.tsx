@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateTimeInput, DateField } from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateTimeInput, DateField, ReferenceField } from "react-admin";
 
 const AttendanceLogFilter = (props: any) => (
   <Filter {...props}>
@@ -8,6 +8,7 @@ const AttendanceLogFilter = (props: any) => (
 
 const AttendanceLogForm = (props: any) => (
   <SimpleForm>
+    <TextInput source="empId" label='Emp. Code' />
     <TextInput source="batchId" label='Batch ID' />
     <TextInput source="cardId" label='Card ID'/>
     <DateTimeInput
@@ -30,6 +31,9 @@ export const AttendanceLogList = () => (
     <h1>Attendance Log</h1>
     <List filters={<AttendanceLogFilter />}>
       <Datagrid rowClick="edit">
+      <ReferenceField source="empId" reference="employees">
+                    <TextField source="details" />
+                </ReferenceField>
         <TextField source="batchId" label='Batch ID' />
         <TextField source="cardId" label='Card ID'/>
         <DateField
