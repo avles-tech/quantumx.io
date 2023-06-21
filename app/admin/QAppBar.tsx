@@ -22,10 +22,12 @@ export const QAppBar = () => (
                         width={60}  
                         height={35} 
                     />
+                    <div> Quantumx.io </div>
                 </a>
             </Link>
 
-            <div> Quantumx.io </div></Box>
+            
+            </Box>
 
         <Box component="span" flex={1} />
         <Search />
