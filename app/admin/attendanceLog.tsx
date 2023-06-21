@@ -3,6 +3,8 @@ import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, R
 const AttendanceLogFilter = (props: any) => (
   <Filter {...props}>
     <TextInput label="Search" source="q" alwaysOn inputProps={{ style: { width: '500px' } }} />
+    <DateTimeInput source="dateTime_gte" label="Date & Time from" />
+    <DateTimeInput source="dateTime_lte" label="Date & Time to" />
   </Filter>
 );
 
@@ -10,21 +12,22 @@ const AttendanceLogForm = (props: any) => (
   <SimpleForm>
     <TextInput source="empId" label='Emp. Code' />
     <TextInput source="batchId" label='Batch ID' />
-    <TextInput source="cardId" label='Card ID'/>
+    <TextInput source="cardId" label='Card ID' />
     <DateTimeInput
       source="dateTime"
       label="Date & Time"
       type="datetime-local"
       inputProps={{
-        format: 'dd:MM:yyyy' , placeholder: 'dd:MM:yyyy',
+        placeholder: 'yyyy-MM-ddThh:mm',
         ampm: false,
       }}
     />
-    <TextInput source="deviceId" label='Device ID'/>
-    <TextInput source="attdType" label='Attendance Type'/>
-    <TextInput source="trtRecord" label='TRT Record'/>
+    <TextInput source="deviceId" label='Device ID' />
+    <TextInput source="attdType" label='Attendance Type' />
+    <TextInput source="trtRecord" label='TRT Record' />
   </SimpleForm>
 );
+
 
 export const AttendanceLogList = () => (
   <>
@@ -35,7 +38,10 @@ export const AttendanceLogList = () => (
                     <TextField source="details" />
                 </ReferenceField>
         <TextField source="batchId" label='Batch ID' />
-        <TextField source="cardId" label='Card ID'/>
+        <TextField source="cardId" label='Card ID' />
+        <ReferenceField source="cardId"  reference="employees">
+          <TextField source="cardId" />
+        </ReferenceField>
         <DateField
           source="dateTime"
           showTime
@@ -43,10 +49,11 @@ export const AttendanceLogList = () => (
           label="Date & Time"
           locale="en-GB"
           options={{ day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false }}
-          />            
-        <TextField source="deviceId" label='Device ID'/>
-        <TextField source="attdType" label='Attendance Type'/>
-        <TextField source="trtRecord" label='TRT Record'/>
+        />
+       
+        <TextField source="deviceId" label='Device ID' />
+        <TextField source="attdType" label='Attendance Type' />
+        <TextField source="trtRecord" label='TRT Record' />
       </Datagrid>
     </List>
   </>

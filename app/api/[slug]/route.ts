@@ -43,11 +43,14 @@ export async function GET(request: Request, {
     const filter = searchParams.get('filter');
     const q = JSON.parse(filter || '{}').q  || '' ;
     const query = q ? { $text: { $search: q } } : {};
-    console.log(query)
+    console.log(query);
 
+    const range = searchParams.get('range');
+    const rangeEx = JSON.parse(range || '{}');
+    const limit = (rangeEx[1] - rangeEx[0] + 1) || 10;
+    const skip = rangeEx[0] || 0;
 
-
-    let data = await db.collection(collectionName).find(query).toArray();
+    let data = await db.collection(collectionName).find(query).skip(skip).limit(limit).toArray();
 
     data = data.map((item: any) => {
       item.id = item._id;
