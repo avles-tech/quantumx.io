@@ -38,13 +38,9 @@ export const EmployeeList = () => (
         <List filters={<EmployeesFilter />}>
             <Datagrid rowClick="edit">
                 <TextField source="empId" label='Emp. Code' />
-
                 <TextField source="name" label='Name with Initial' />
-                
                 <TextField source="department" label="Department" />
-
                 <TextField source="position" label="Position" />
-
             </Datagrid>
         </List>
     </>
@@ -67,8 +63,6 @@ const EmployeeForm = (props: any) => (
         <h1> {props.title}</h1>
         <h2>Personal Information</h2>
         <FormGrid>
-
-            
             <TextInput source="empId" label='Employee Code' validate={required('Please enter an employee code')}/>
             <TextInput source="cardId" label='Card ID' validate={required('Please enter a Card ID')}/>
             <FullInput source="name" label='Name with Initials' validate={required('Please enter a Name')}/>
@@ -76,7 +70,6 @@ const EmployeeForm = (props: any) => (
             <TextInput source="middleName" label='Middle Name' />
             <TextInput source="lastName" label='Last Name' />
             <WideInput source="nic" label='National ID' />
-            
             <FullInput source="remarks" label='Remarks' multiline rows={3} />
             <DateInput source="dob" label='Date of Birth' />
             <SelectInput
