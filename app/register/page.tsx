@@ -23,7 +23,7 @@ const page = () => {
       if (data.error) {
         setError(data.error)
       } else {
-        window.location.href = '/login'
+        //window.location.href = '/login'
       }
     }
     )
