@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateInput, SelectInput, Form , required} from "react-admin";
+import { List, Datagrid, TextField, BooleanField, Edit, SimpleForm, TextInput, ReferenceInput, BooleanInput, Create, Filter, DateInput, SelectInput, Form , required, useAuthenticated} from "react-admin";
 import styled from 'styled-components';
 
 const FormGrid = styled.div`
@@ -32,19 +32,22 @@ const validateTel = (tel: string) => {
     return undefined; // Return undefined if the validation succeeds
 };
 
-export const EmployeeList = () => (
-    <>
-        <h1>Employees List</h1>
-        <List filters={<EmployeesFilter />}>
-            <Datagrid rowClick="edit">
-                <TextField source="empId" label='Emp. Code' />
-                <TextField source="name" label='Name with Initial' />
-                <TextField source="department" label="Department" />
-                <TextField source="position" label="Position" />
-            </Datagrid>
-        </List>
-    </>
-);
+export const EmployeeList = () => {
+    useAuthenticated();
+    return (
+        <>
+            <h1>Employees List</h1>
+            <List filters={<EmployeesFilter />}>
+                <Datagrid rowClick="edit">
+                    <TextField source="empId" label='Emp. Code' />
+                    <TextField source="name" label='Name with Initial' />
+                    <TextField source="department" label="Department" />
+                    <TextField source="position" label="Position" />
+                </Datagrid>
+            </List>
+        </>
+    );
+} 
 
 export const EmployeeEdit = () => (
     <Edit>
