@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import  { useState } from 'react'
 
-const page = () => {
+const Page = () => {
 
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -53,4 +53,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
