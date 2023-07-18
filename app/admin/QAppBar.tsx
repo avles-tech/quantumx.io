@@ -14,18 +14,16 @@ export const QAppBar = () => (
     <AppBar color="primary">
         <Box display="flex" alignItems="center">
            
-           <Link to="/"> {/* This Link component wraps the Image component */}
-                <a> {/* The <a> tag is needed for the correct rendering and accessibility */}
+        <a> 
                     <Image
                         src="https://flowbite.com/docs/images/logo.svg"
                         alt="Quantumx.io"
                         width={60}  
                         height={35} 
                     />
-                    <div> Quantumx.io </div>
+                    
                 </a>
-            </Link>
-
+                <div> Quantumx.io </div>
             
             </Box>
 

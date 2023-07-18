@@ -1,7 +1,7 @@
 'use client'
 import  { useState } from 'react'
 
-const Page = () => {
+const RegisterPage = () => {
 
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -53,4 +53,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default RegisterPage
