@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import  { useState } from 'react'
 
-const page = () => {
+const RegisterPage = () => {
 
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +23,7 @@ const page = () => {
       if (data.error) {
         setError(data.error)
       } else {
-        window.location.href = '/login'
+        //window.location.href = '/login'
       }
     }
     )
@@ -53,4 +53,4 @@ const page = () => {
   )
 }
 
-export default page
+export default RegisterPage

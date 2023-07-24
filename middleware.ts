@@ -3,28 +3,28 @@ import type { NextRequest } from 'next/server'
 import { verifyJWT } from './lib/token';
 
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
     if (request.nextUrl.pathname.startsWith('/api')) {
+
         if (!request.nextUrl.pathname.startsWith('/api/login')) {
             const authorizatioin = request.headers.get('Authorization');
             const token = authorizatioin?.replace('Bearer ', '');
             if (!token) {
-                return NextResponse.redirect('/login');
+                return new NextResponse(
+                    JSON.stringify({ success: false, message: 'authentication failed' }),
+                    { status: 401, headers: { 'content-type': 'application/json' } }
+                  )
             }
             else {
                 try {
-                    const payload = verifyJWT<{ sub: string }>(token);
+                    const payload = await verifyJWT<{ sub: string }>(token);
                 } catch (error) {
-                    return NextResponse.redirect('/login');
+                    return new NextResponse(
+                        JSON.stringify({ success: false, message: 'authentication failed' }),
+                        { status: 401, headers: { 'content-type': 'application/json' } }
+                      )
                 }
-
-
             }
-
-
-
-
-
         }
     }
 }

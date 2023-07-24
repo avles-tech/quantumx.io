@@ -35,9 +35,12 @@ export const QMenu = () => (
         </SubMenu>
         <SubMenu primaryText="User Management" leftIcon={<AccountCircleIcon />}>
             <Menu.ResourceItem name="users" />
-            
+
         </SubMenu>
-        
-        <Menu.Item to="/custom-route" primaryText="Miscellaneous" leftIcon={<LabelIcon />} />
+        <SubMenu primaryText="Reports" leftIcon={<LabelIcon />}>
+            <Menu.Item to="/report" primaryText="Attenadance Report" leftIcon={<LabelIcon />} />
+        </SubMenu>
+
+        {/* <Menu.Item to="/custom-route" primaryText="Miscellaneous" leftIcon={<LabelIcon />} /> */}
     </Menu>
 );
