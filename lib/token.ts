@@ -1,4 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
+import { NextResponse } from "next/server";
 
 export const signJWT = async (
     payload: { sub: string },
@@ -29,6 +30,7 @@ export const signJWT = async (
     } catch (error) {
       console.log(error);
       throw new Error("Your token has expired.");
+       
     }
   };
   

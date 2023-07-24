@@ -35,6 +35,9 @@ import { AttendanceLogCreate, AttendanceLogEdit, AttendanceLogList } from "./att
 import authProvider from './authProvider';
 import { UserCreate, UserEdit, UserList } from "./users";
 import BadgeIcon from '@mui/icons-material/Badge';
+import { Route } from "react-router-dom";
+import reportPage from "./reportPage";
+import { Router } from "express";
 
 const httpClient = (url: string, options: fetchUtils.Options = {}) => {
   options.headers = new Headers(options.headers);
@@ -109,6 +112,7 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider >
+      
       <Admin dataProvider={myDataProvider} theme={theme} layout={QAppLayout} dashboard={Dashboard} authProvider={authProvider}>
         <Resource name="grades" list={GradeList} edit={GradeEdit} create={GradeCreate} icon={BookIcon} />
         <Resource name="departments" list={DepartmentList} edit={DepartmentEdit} create={DepartmentCreate} icon={AccountTreeIcon}/>
@@ -123,9 +127,11 @@ const App = () => {
         <Resource name="roster" list={RosterList} edit={RosterEdit} create={RosterCreate} icon={ScheduleIcon}/>
         <Resource name="attendanceLog" list={AttendanceLogList} edit={AttendanceLogEdit} create={AttendanceLogCreate} options={{ label: 'Attendance Log' }} />
         <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} icon={BadgeIcon}/>
+        <Resource name="reportPage" list={reportPage} />
       </Admin>
+      
     </ThemeProvider>
-
+  
   )
 }
 

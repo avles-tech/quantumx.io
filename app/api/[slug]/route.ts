@@ -41,16 +41,29 @@ export async function GET(request: Request, {
 
     const { searchParams } = new URL(request.url);
     const filter = searchParams.get('filter');
-    const q = JSON.parse(filter || '{}').q  || '' ;
+    const q = JSON.parse(filter || '{}').q || '';
     const query = q ? { $text: { $search: q } } : {};
     console.log(query);
 
     const range = searchParams.get('range');
-    const rangeEx = JSON.parse(range || '{}');
-    const limit = (rangeEx[1] - rangeEx[0] + 1) || 10;
-    const skip = rangeEx[0] || 0;
+   
+    let queryBuilder = db.collection(collectionName).find(query);
 
-    let data = await db.collection(collectionName).find(query).skip(skip).limit(limit).toArray();
+    if (range !== undefined) {
+      const rangeEx = JSON.parse(range || '{}');
+      const limit = (rangeEx[1] - rangeEx[0] + 1);
+      queryBuilder = queryBuilder.limit(limit);
+      const skip = rangeEx[0] || 0;
+      if(skip !== undefined){
+        queryBuilder = queryBuilder.limit(limit).skip(skip);
+      }
+    }
+
+    let data = await queryBuilder.toArray();
+
+
+    //let data = await db.collection(collectionName).find(query).skip(skip).limit(limit).toArray();
+    //let data = await db.collection(collectionName).find().toArray();
 
     data = data.map((item: any) => {
       item.id = item._id;

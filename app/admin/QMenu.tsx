@@ -10,6 +10,8 @@ import Diversity1Icon from '@mui/icons-material/Diversity1';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+import reportPage from "./reportPage";
+
 export const QMenu = () => (
     <Menu>
         <Menu.DashboardItem />

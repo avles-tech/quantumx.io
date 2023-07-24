@@ -34,14 +34,11 @@ export const AttendanceLogList = () => (
     <h1>Attendance Log</h1>
     <List filters={<AttendanceLogFilter />}>
       <Datagrid rowClick="edit">
-      <ReferenceField source="empId" reference="employees">
-                    <TextField source="details" />
-                </ReferenceField>
+        <ReferenceField source="empId" reference="employee">
+          <TextField source="name" />
+        </ReferenceField>
         <TextField source="batchId" label='Batch ID' />
         <TextField source="cardId" label='Card ID' />
-        <ReferenceField source="cardId"  reference="employees">
-          <TextField source="cardId" />
-        </ReferenceField>
         <DateField
           source="dateTime"
           showTime
@@ -50,7 +47,7 @@ export const AttendanceLogList = () => (
           locale="en-GB"
           options={{ day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false }}
         />
-       
+
         <TextField source="deviceId" label='Device ID' />
         <TextField source="attdType" label='Attendance Type' />
         <TextField source="trtRecord" label='TRT Record' />
